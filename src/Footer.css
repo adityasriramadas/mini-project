@@ -1,0 +1,65 @@
+body{
+    font-family:Roboto;
+}
+
+footer{
+     background-color: #000000;
+     padding-top:60px;
+     padding-bottom: 10px;
+}	       
+
+footer ul li{
+    padding:5px 0px;
+}
+
+.l , .links span , .follow span{
+   color: rgb(255, 255, 255); 
+   font-weight: 600; 
+   padding-bottom: 10px; 
+   margin-bottom: 20px;
+   display: block;
+   font-size: 20px;
+   letter-spacing: 3px;
+   text-align: center;
+}
+ 
+ .copy,.links a , .follow a{
+    color:#FFF;
+    letter-spacing: 2px;
+    text-decoration:none;
+    font-size:15px;
+    text-align: center;
+}
+
+
+.links , .follow {
+    list-style:none;
+  
+}
+
+.fa{
+    color:#9c9c9c;
+    margin-right: 15px;
+    font-size:14px;
+}
+
+
+.copy{
+
+    padding-top:30px;
+    
+}
+
+.l span{
+
+    text-transform:uppercase;
+    font-weight: 800;
+    
+
+}
+
+footer a:hover{
+    color: white;
+    border-bottom: white;
+    
+}
