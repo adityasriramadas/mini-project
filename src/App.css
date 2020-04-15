@@ -1,0 +1,31 @@
+.hme{
+    background-color: rgb(161, 116, 116);
+    font-size: large;
+  }
+  .con{
+    margin-top:0px !important;
+    width: 100% !important;
+    background-color: gray;
+    height: 100% !important;
+  }
+  .ht{
+    height: 100vh;
+    
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0, 0, 0, 0.7)), url("https://previews.123rf.com/images/nexusplexus/nexusplexus1212/nexusplexus121205627/17056576-illustration-with-medical-background-having-heart-beat-doctor-and-stethoscope.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    
+  padding-top: 50px;
+  }
+  
+  .App {
+    text-align: center;
+    background-color:white;
+  }
+  .divclass{
+      height: 100vh;
+  }
+  
+  

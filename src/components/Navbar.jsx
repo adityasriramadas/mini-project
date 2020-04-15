@@ -1,10 +1,10 @@
 import React from 'react';
-import './nav.css';
 import {Link} from 'react-router-dom';
+import '../nav.css'
 
 
 
-class NavigationBar extends React.Component{
+class Navbar extends React.Component{
 
     
     constructor(props) {
@@ -41,7 +41,7 @@ class NavigationBar extends React.Component{
 
                  <header>
 
-                    <nav className="navbar navbar-expand-lg navStyle">
+                    <nav className="navbar navbar-expand-lg navStyle sticky-top">
                         <div class='logo' align='center'>
                             <Link className="brand-navbar" to="#">
                             
@@ -58,13 +58,13 @@ class NavigationBar extends React.Component{
                             <ul className="navbar-nav ml-auto navList">
                                 <li className="nav-item active"><Link to="/" className="nav-link"><i className="fa fa-home"></i>HOME<span className="sr-only">(current)</span></Link></li>
                                 <li className="nav-item">
-                                    <Link to="services.html" className="nav-link"><i className="fa fa-cogs"></i>Services</Link>
+                                    <Link to="Services" className="nav-link"><i className="fa fa-cogs"></i>Services</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="portfolio.html" className="nav-link"><i className="fa fa-briefcase"></i>Portfolio</Link>
+                                    <Link to="Profile" className="nav-link"><i className="fa fa-briefcase"></i>Portfolio</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="contact.html" className="nav-link"><i className="fa fa-phone"></i>Contact</Link>
+                                    <Link to="Contact" className="nav-link"><i className="fa fa-phone"></i>Contact</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link to="/About" className="nav-link"><i className="fa fa-users"></i>About</Link>
@@ -79,4 +79,4 @@ class NavigationBar extends React.Component{
     }
 }
 
-export default NavigationBar;
+export default Navbar;

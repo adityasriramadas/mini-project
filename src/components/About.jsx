@@ -1,13 +1,13 @@
-import React from 'react';
+import React,{Component} from 'react';
 
-class About extends React.Component{
+class About extends Component{
 
     render(){
 
         return(
             <div>
                 
-               <p>vhgsdvxvch,dxcj</p>
+               <h2>This is About</h2>
 
             </div>
         );
