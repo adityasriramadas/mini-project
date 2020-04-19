@@ -32,16 +32,22 @@ function Footer(){
                                 <div align='center'> 
 
                                     <li>
-                                    <Link to="#">Home</Link>
+                                    <Link to="/">Home</Link>
+                                    </li>
+
+                                    <li>
+                                            <Link to="#">Services</Link>
+                                    </li>
+
+                                    <li>
+                                            <Link to="#">Doctors</Link>
                                     </li>
                                 
                                     <li>
-                                        <Link to="#">About</Link>
+                                        <Link to="/About">About</Link>
                                     </li>
                                             
-                                    <li>
-                                            <Link to="#">Blog</Link>
-                                    </li>
+                                   
                                             
                                     
                                 </div>
@@ -51,6 +57,7 @@ function Footer(){
                     <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <ul className="follow">
                                 <span>Follow Us</span>
+                                    
                                     <div style={{display:'flex', justifyContent: "center"}}>
                                         <li>
                                                 <Link to="htttps://www.facebook.com/doctor"><i className="fa fa-facebook fa-2x"></i></Link>
