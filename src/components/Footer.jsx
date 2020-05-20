@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import './Footer.css';
+import './Footer.css'
 
 
 function Footer(){
@@ -77,10 +77,9 @@ function Footer(){
                         </ul>
                     </div>
             
-            
             </div> 
             </div>
-            
+            <hr></hr>
             <div align='center' className='copy'>&#169;All right Reversed.</div>
         </footer>
     );

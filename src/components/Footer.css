@@ -54,12 +54,13 @@ footer ul li{
 
     text-transform:uppercase;
     font-weight: 800;
+    text-decoration: none;
     
 
 }
 
 footer a:hover{
     color: white;
-    border-bottom: white;
+    
     
 }

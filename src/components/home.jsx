@@ -56,6 +56,7 @@ class Home extends React.Component{
             <img src="/icon/banner_1.svg" alt=""/>
             <h5>Emergency</h5>
             </div>
+            
             <div class="single_item">
             <img src="/icon/banner_2.svg" alt=""/>
             <h5>Appointment</h5>
@@ -101,22 +102,11 @@ class Home extends React.Component{
             </div>
             </div>
 
-
-             <div class="single_feature">
-            <div class="single_feature_part">
-            <span class="single_feature_icon"><img src="/icon/feature_2.svg" alt=""/></span>
-            <h4>Better Future</h4>
-            <p>Darkness multiply rule Which from without life creature blessed
-            give moveth moveth seas make day which divided our have.</p>
-            </div>
-            </div>
-
-
             </div>
             <div class="col-lg-4 col-sm-12">
             <div class="single_feature_img">
             <img src="/service.png" alt=""/>
-            <div>abcdef</div>
+            
             </div>
             </div>
             <div class="col-lg-3 col-sm-12">
@@ -137,14 +127,6 @@ class Home extends React.Component{
             </div>
             </div>
 
-            <div class="single_feature">
-            <div class="single_feature_part">
-            <span class="single_feature_icon"><img src="/icon/feature_2.svg" alt=""/></span>
-            <h4>Better Future</h4>
-            <p>Darkness multiply rule Which from without life creature blessed
-            give moveth moveth seas make day which divided our have.</p>
-            </div>
-            </div>
 
             </div>
             </div>
@@ -153,7 +135,7 @@ class Home extends React.Component{
 
 
 
-            <section class="doctor_part section_padding">
+            <section class="doctor_part section_padding" align='center'>
             <div class="container">
             <div class="row justify-content-center">
             <div class="col-xl-8">
@@ -168,14 +150,7 @@ class Home extends React.Component{
             <div class="single_blog_item">
             <div class="single_blog_img">
             <img src="/doctor/doctor_1.png" alt="doctor"/>
-            <div class="social_icon">
-            <ul>
-            <li><a href="#"> <i class="ti-facebook"></i> </a></li>
-            <li><a href="#"> <i class="ti-twitter-alt"></i> </a></li>
-            <li><a href="#"> <i class="ti-instagram"></i> </a></li>
-            <li><a href="#"> <i class="ti-skype"></i> </a></li>
-            </ul>
-            </div>
+            
             </div>
             <div class="single_text">
             <div class="single_blog_text">
@@ -189,14 +164,7 @@ class Home extends React.Component{
             <div class="single_blog_item">
             <div class="single_blog_img">
             <img src="/doctor/doctor_4.png" alt="doctor"/>
-            <div class="social_icon">
-            <ul>
-            <li><a href="#"> <i class="ti-facebook"></i> </a></li>
-            <li><a href="#"> <i class="ti-twitter-alt"></i> </a></li>
-            <li><a href="#"> <i class="ti-instagram"></i> </a></li>
-            <li><a href="#"> <i class="ti-skype"></i> </a></li>
-            </ul>
-            </div>
+            
             </div>
             <div class="single_text">
             <div class="single_blog_text">
@@ -210,15 +178,8 @@ class Home extends React.Component{
             <div class="single_blog_item">
             <div class="single_blog_img">
             <img src="/doctor/doctor_2.png" alt="doctor"/>
-            <div class="social_icon">
-            <ul>
-            <li><a href="#"> <i class="ti-facebook"></i> </a></li>
-            <li><a href="#"> <i class="ti-twitter-alt"></i> </a></li>
-            <li><a href="#"> <i class="ti-instagram"></i> </a></li>
-            <li><a href="#"> <i class="ti-skype"></i> </a></li>
-            </ul>
             </div>
-            </div>
+            
             <div class="single_text">
             <div class="single_blog_text">
             <h3>DR Fred Macyard</h3>
@@ -231,14 +192,7 @@ class Home extends React.Component{
             <div class="single_blog_item">
             <div class="single_blog_img">
             <img src="/doctor/doctor_3.png" alt="doctor"/>
-            <div class="social_icon">
-            <ul>
-            <li><a href="#"> <i class="ti-facebook"></i> </a></li>
-            <li><a href="#"> <i class="ti-twitter-alt"></i> </a></li>
-            <li><a href="#"> <i class="ti-instagram"></i> </a></li>
-            <li><a href="#"> <i class="ti-skype"></i> </a></li>
-            </ul>
-            </div>
+            
             </div>
             <div class="single_text">
             <div class="single_blog_text">
