@@ -1,5 +1,6 @@
 import React from "react";
 import { Cascader } from "antd";
+import "antd/dist/antd.css";
 
 import "./appointment.css";
 var date = new Date();
@@ -12,8 +13,8 @@ var max_date =
   result.slice(0, 4) + "-" + result.slice(5, 7) + "-" + result.slice(8, 10);
 const options = [
   {
-    value: "9:00 AM",
-    label: "9:00 AM",
+    value: "09:00 AM",
+    label: "09:00 AM",
   },
   {
     value: "10:00 AM",
@@ -81,17 +82,20 @@ class Appointment extends React.Component {
                       max={max_date}
                       required="required"
                     />
-
+                    <Cascader
+                      style={{
+                        width: "341 !important",
+                        height: "51 !important",
+                      }}
+                      options={options}
+                      onChange={this.onChange}
+                      changeOnSelect
+                    />
                     <button type="submit" class="btn">
                       Get Your Free Appointment
                     </button>
                   </fieldset>
                 </form>
-                <Cascader
-                  options={options}
-                  onChange={this.onChange}
-                  changeOnSelect
-                />
               </div>
             </div>
           </div>
