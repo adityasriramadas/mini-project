@@ -1,7 +1,7 @@
 import firebase from "firebase/app";
 require("firebase/auth");
 
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyCptXVWpCDWAURz8DG9rmYXZj7oFct0OFk",
   authDomain: "mini-project-198b0.firebaseapp.com",
   databaseURL: "https://mini-project-198b0.firebaseio.com",

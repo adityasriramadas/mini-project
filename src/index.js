@@ -21,21 +21,13 @@ class MyNavbar extends React.Component {
 
           <Switch>
             <Route exact path="/" component={Home}></Route>
-            <Route path="/appointment">
-              <Appointment />
-            </Route>
+            <Route path="/appointment" component={Appointment}></Route>
 
-            <Route path="/About">
-              <About />
-            </Route>
+            <Route path="/About" component={About}></Route>
 
-            <Route path="/login">
-              <Login />
-            </Route>
+            <Route path="/login" component={Login}></Route>
 
-            <Route path="/signup">
-              <Signup />
-            </Route>
+            <Route path="/signup" component={Signup}></Route>
           </Switch>
           <Footer />
         </BrowserRouter>
