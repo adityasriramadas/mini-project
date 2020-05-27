@@ -47,7 +47,7 @@ class Appointment extends React.Component {
     super();
     this.state = {
       name: "",
-      age: 0,
+      age: "",
       number: "",
       doa: "",
       toa: "",
@@ -75,6 +75,7 @@ class Appointment extends React.Component {
         patientDetails: {
           name: cc.state.name,
           age: cc.state.age,
+          email:cc.state.email,
           phonenumber: cc.state.number,
           doa: cc.state.doa,
           toa: time_of_app[0],
@@ -97,45 +98,88 @@ class Appointment extends React.Component {
                 <h2>Book an Appointment</h2>
                 <p>Please fill details to book an appointment!</p>
                 <hr />
-                <form>
-                  <fieldset>
-                    <input
-                      type="text"
-                      ref="name"
-                      placeholder="Name of patients"
-                      required="required"
-                      name="name"
-                      onChange={this.onChange}
-                    />
+                <form
+                action=""
+                style={{ margin: "auto" }}
+                className="needs-validation col-sm-12"
+                noValidate
+              >
+                <div className="row">
+                  <div className="col">
+                    <div className="form-group">
+                      <div>
+                      
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Name of patients"
+                        required="required"
+                        //id="fn"
+                        //className={`form-control ${this.state.fnClass}`}
+                        onChange={this.onChange}
+                      ></input>
+                      </div>
+                      {/* <div className="invalid-feedback">
+                        First name is invalid.
+                      </div> */}
+                    </div>
+                  </div>
+                </div>
+                <div className="form-group">
+                  
+                  <input
+                    type="number"
+                    name="age"
+                    placeholder="Age"
+                    min="1"
+                    max="99"
+                    required="required"
+                    //id="pn"
+                   // className={`form-control ${this.state.pnClass}`}
+                    onChange={this.onChange}
+                  ></input>
+                  
+                </div>
+                <div className="form-group">
+                  
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    //id="em"
+                   // className={`form-control ${this.state.emClass}`}
+                    onChange={this.onChange}
+                  ></input>
+                </div>
 
-                    <input
-                      placeholder="Age"
-                      type="number"
-                      min="1"
-                      max="99"
-                      required="required"
-                      name="age"
-                      onChange={this.onChange}
-                    ></input>
-                    <input
-                      type="tel"
-                      placeholder="Mobile Number"
-                      pattern="[0-9]{10}"
-                      required="required"
-                      name="number"
-                      onChange={this.onChange}
-                    ></input>
-                    <input
-                      id="datepicker-disable-past"
-                      type="date"
-                      placeholder="DDMMYYYY"
-                      min={today}
-                      max={max_date}
-                      required="required"
-                      name="doa"
-                      onChange={this.onChange}
-                    />
-                    <Cascader
+                <div className="form-group">
+                  
+                  <input
+                    type="tel"
+                    pattern="[0-9]{10}"
+                    name="phonenumber"
+                    placeholder="Phone Number"
+                    required="required"
+                    //id="pw"
+                   // className={`form-control ${this.state.pwClass}`}
+                    onChange={this.onChange}
+                  ></input>
+                  
+                </div>
+                <div className="form-group">
+                  
+                  <input
+                    id="datepicker-disable-past"
+                    type="date"
+                    placeholder="DDMMYYYY"
+                    min={today}
+                    max={max_date}
+                    required="required"
+                    name="doa"
+                    onChange={this.onChange}
+                  ></input>
+                </div>
+                <Cascader
                       style={{
                         width: "341 !important",
                         height: "51 !important",
@@ -147,13 +191,12 @@ class Appointment extends React.Component {
                     <button class="btn" onClick={this.onClick}>
                       Get Your Free Appointment
                     </button>
-                  </fieldset>
-                </form>
+              </form>
+            </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
     );
   }
 }
