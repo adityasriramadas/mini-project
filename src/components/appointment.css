@@ -88,3 +88,8 @@
   font-size: 20px;
   width: 125px;
 }
+.ant-cascader-menu .doct{
+  font-size: 20px;
+  width: 250px !important;
+}
+
