@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Cascader } from "antd";
 import "antd/dist/antd.css";
@@ -56,7 +55,6 @@ const doctoptions = [
     value: "DR.Sahith(Heart specialist)",
     label: "DR.Sahith(Heart specialist)",
   },
-
 ];
 class Appointment extends React.Component {
   constructor() {
@@ -65,7 +63,7 @@ class Appointment extends React.Component {
       name: "",
       age: "",
       number: "",
-      doctor:"",
+      doctor: "",
       doa: "",
       toa: "",
       redirect: false,
@@ -102,7 +100,7 @@ class Appointment extends React.Component {
           age: cc.state.age,
           email: cc.state.email,
           phonenumber: cc.state.number,
-          doctor:cc.state.doctor,
+          doctor: cc.state.doctor,
           doa: cc.state.doa,
           toa: time_of_app[0],
         },
@@ -193,17 +191,16 @@ class Appointment extends React.Component {
                       ></input>
                     </div>
                     <div className="form-group">
-                    <Cascader className="doct"
-                      style={{
-                        width: "5000 !important",
-                        height: "35 !important",
-                      }}
-                      placeholder="Select Doctor"
-                      
-                      options={doctoptions}
-                      onChange={this.OndoctChange}
-                      changeOnSelect
-                    />
+                      <Cascader
+                        style={{
+                          width: "50 !important",
+                          height: "35 !important",
+                        }}
+                        placeholder="Select Doctor"
+                        options={doctoptions}
+                        onChange={this.OndoctChange}
+                        changeOnSelect
+                      />
                     </div>
                     <div className="form-group">
                       <input
@@ -217,7 +214,7 @@ class Appointment extends React.Component {
                         onChange={this.onChange}
                       ></input>
                     </div>
-                    <Cascader 
+                    <Cascader
                       style={{
                         width: "341 !important",
                         height: "51 !important",
@@ -227,7 +224,7 @@ class Appointment extends React.Component {
                       onChange={this.timeChange}
                       changeOnSelect
                     />
-                     
+
                     <button className="btn" onClick={this.onClick}>
                       Get Your Free Appointment
                     </button>
