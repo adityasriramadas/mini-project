@@ -6,7 +6,8 @@ import About from "./components/About";
 import Login from "./components/login";
 import Appointment from "./components/appointment";
 import Signup from "./components/signup";
-import Home from "./components/Home";
+import Home from "./components/home";
+import Confirm from "./components/Confirm";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
@@ -21,21 +22,15 @@ class MyNavbar extends React.Component {
 
           <Switch>
             <Route exact path="/" component={Home}></Route>
-            <Route path="/appointment">
-              <Appointment />
-            </Route>
+            <Route path="/appointment" component={Appointment}></Route>
 
-            <Route path="/About">
-              <About />
-            </Route>
+            <Route path="/About" component={About}></Route>
 
-            <Route path="/login">
-              <Login />
-            </Route>
+            <Route path="/login" component={Login}></Route>
 
-            <Route path="/signup">
-              <Signup />
-            </Route>
+            <Route path="/signup" component={Signup}></Route>
+
+            <Route path="/confirm" component={Confirm}></Route>
           </Switch>
           <Footer />
         </BrowserRouter>

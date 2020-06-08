@@ -12,12 +12,12 @@ class Home extends React.Component {
                 <div className="banner_text">
                   <div className="banner_text_iner">
                     <h5>We are here for your care</h5>
-                    <h1>Best Care & Better Doctor</h1>
+                    <h1>Best Care &amp; Better Doctor</h1>
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit
                       sed do eiusmod tempor incididunt ut labore et dolore magna
                       aliqua. Quis ipsum suspendisse ultrices gravida.Risus
-                      cmodo viverra{" "}
+                      cmodo viverra
                     </p>
                     <a href="#" className="btn_2">
                       Make an appointment
