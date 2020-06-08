@@ -6,7 +6,7 @@ import About from "./components/About";
 import Login from "./components/login";
 import Appointment from "./components/appointment";
 import Signup from "./components/signup";
-import Home from "./components/home";
+import Home from "./components/Home";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
