@@ -42,6 +42,20 @@ const options = [
     label: "03:00 PM",
   },
 ];
+const doctoptions = [
+  {
+    value: "DR.Nikhil(ENT Specl)",
+    label: "DR.Nikhil(ENT Specl)",
+  },
+  {
+    value: "DR.Aditya(psychology)",
+    label: "DR.Aditya(psychology)",
+  },
+  {
+    value: "DR.Sahith(Heart specialist)",
+    label: "DR.Sahith(Heart specialist)",
+  },
+];
 class Appointment extends React.Component {
   constructor() {
     super();
@@ -49,6 +63,7 @@ class Appointment extends React.Component {
       name: "",
       age: "",
       number: "",
+      doctor: "",
       doa: "",
       toa: "",
       redirect: false,
@@ -56,6 +71,7 @@ class Appointment extends React.Component {
     this.onClick = this.onClick.bind(this);
     this.onChange = this.onChange.bind(this);
     this.timeChange = this.timeChange.bind(this);
+    this.OndoctChange = this.OndoctChange.bind(this);
   }
   onChange = (event) => {
     this.setState({
@@ -65,6 +81,11 @@ class Appointment extends React.Component {
   timeChange = (time) => {
     this.setState({
       toa: time,
+    });
+  };
+  OndoctChange = (doct) => {
+    this.setState({
+      doctor: doct,
     });
   };
   onClick = (e) => {
@@ -79,6 +100,7 @@ class Appointment extends React.Component {
           age: cc.state.age,
           email: cc.state.email,
           phonenumber: cc.state.number,
+          doctor: cc.state.doctor,
           doa: cc.state.doa,
           toa: time_of_app[0],
         },
@@ -169,6 +191,18 @@ class Appointment extends React.Component {
                       ></input>
                     </div>
                     <div className="form-group">
+                      <Cascader
+                        style={{
+                          width: "50 !important",
+                          height: "35 !important",
+                        }}
+                        placeholder="Select Doctor"
+                        options={doctoptions}
+                        onChange={this.OndoctChange}
+                        changeOnSelect
+                      />
+                    </div>
+                    <div className="form-group">
                       <input
                         id="datepicker-disable-past"
                         type="date"
@@ -185,10 +219,12 @@ class Appointment extends React.Component {
                         width: "341 !important",
                         height: "51 !important",
                       }}
+                      placeholder="Time Slot"
                       options={options}
                       onChange={this.timeChange}
                       changeOnSelect
                     />
+
                     <button className="btn" onClick={this.onClick}>
                       Get Your Free Appointment
                     </button>
