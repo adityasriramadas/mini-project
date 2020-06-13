@@ -64,10 +64,11 @@
 .appoint_ment_form form .btn {
   width: 100%;
   background-color: #ff9703;
-  padding: 22px 0;
+  padding: 15px 0;
   text-align: center;
   color: #ffffff;
   font-weight: 400;
+  margin-top: 20px;
   font-family: "Roboto", sans-serif;
   font-size: 19px;
 }

@@ -137,6 +137,36 @@ class Appointment extends React.Component {
         docClass: "is-valid",
       });
     }
+    if (this.state.age === "") {
+      isError = true;
+      this.setState({
+        ageClass: "is-invalid",
+      });
+    } else {
+      this.setState({
+        ageClass: "is-valid",
+      });
+    }
+    if (this.state.toa === "") {
+      isError = true;
+      this.setState({
+        toaClass: "is-invalid",
+      });
+    } else {
+      this.setState({
+        toaClass: "is-valid",
+      });
+    }
+    if (this.state.doa === "") {
+      isError = true;
+      this.setState({
+        doaClass: "is-invalid",
+      });
+    } else {
+      this.setState({
+        doaClass: "is-valid",
+      });
+    }
     return isError;
   };
   OndoctChange = (doct) => {
@@ -241,7 +271,7 @@ class Appointment extends React.Component {
                       <input
                         type="tel"
                         pattern="[0-9]{10}"
-                        name="phonenumber"
+                        name="number"
                         placeholder="Phone Number"
                         required="required"
                         //id="pw"
@@ -270,10 +300,12 @@ class Appointment extends React.Component {
                         min={today}
                         max={max_date}
                         required="required"
+                        className={`form-control ${this.state.doaClass}`}
                         name="doa"
                         onChange={this.onChange}
                       ></input>
                     </div>
+                    
                     <Cascader
                       style={{
                         width: "341 !important",
@@ -281,13 +313,15 @@ class Appointment extends React.Component {
                       }}
                       placeholder="Time Slot"
                       options={options}
+                      className={`form-control ${this.state.toaClass}`}
                       onChange={this.timeChange}
                       changeOnSelect
                     />
-
+                    <div>
                     <button className="btn" onClick={this.onClick}>
                       Get Your Free Appointment
                     </button>
+                    </div>
                   </form>
                 </div>
               </div>
