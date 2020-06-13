@@ -63,17 +63,17 @@ class Appointment extends React.Component {
       name: "",
       age: "",
       number: "",
-      email:"",
+      email: "",
       doctor: "",
       doa: "",
       toa: "",
-      nClass:"",
-      ageClass:"",
-      pnClass:"",
-      emClass:"",
-      docClass:"",
-      doaClass:"",
-      toaClass:"",
+      nClass: "",
+      ageClass: "",
+      pnClass: "",
+      emClass: "",
+      docClass: "",
+      doaClass: "",
+      toaClass: "",
       redirect: false,
     };
     this.onClick = this.onClick.bind(this);
@@ -93,7 +93,7 @@ class Appointment extends React.Component {
     });
   };
   validate = () => {
-    let isError = false;
+    var isError = false;
     const phoneno = /^\d{10}$/;
     // eslint-disable-next-line
     const ema = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
@@ -137,8 +137,8 @@ class Appointment extends React.Component {
         docClass: "is-valid",
       });
     }
-
-  }
+    return isError;
+  };
   OndoctChange = (doct) => {
     this.setState({
       doctor: doct,
@@ -147,31 +147,31 @@ class Appointment extends React.Component {
   onClick = (e) => {
     e.preventDefault();
     const cc = this;
-	const err = this.validate();
+    const err = this.validate();
     var time_of_app = cc.state.toa;
     if (!err) {
-    db.collection("patients")
-      .doc(cc.state.doa)
-      .set({
-        patientDetails: {
-          name: cc.state.name,
-          age: cc.state.age,
-          phonenumber: cc.state.number,
-          email: cc.state.email,
-          doctor: cc.state.doctor,
-          doa: cc.state.doa,
-          toa: time_of_app[0],
-        },
-      })
-      .then(function () {
-        console.log("Success");
-        cc.setState({
-          redirect: true,
+      db.collection("patients")
+        .doc(cc.state.doa)
+        .set({
+          patientDetails: {
+            name: cc.state.name,
+            age: cc.state.age,
+            phonenumber: cc.state.number,
+            email: cc.state.email,
+            doctor: cc.state.doctor,
+            doa: cc.state.doa,
+            toa: time_of_app[0],
+          },
+        })
+        .then(function () {
+          console.log("Success");
+          cc.setState({
+            redirect: true,
+          });
+        })
+        .catch(function () {
+          console.log("fail");
         });
-      })
-      .catch(function () {
-        console.log("fail");
-      });
     }
   };
   render() {
@@ -200,7 +200,6 @@ class Appointment extends React.Component {
                             <input
                               type="text"
                               name="name"
-                              
                               placeholder="Name of patients"
                               required="required"
                               //id="fn"
@@ -208,9 +207,9 @@ class Appointment extends React.Component {
                               onChange={this.onChange}
                             ></input>
                           </div>
-                           <div className="invalid-feedback">
+                          <div className="invalid-feedback">
                             Name is invalid.
-                          </div> 
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -226,7 +225,6 @@ class Appointment extends React.Component {
                         className={`form-control ${this.state.ageClass}`}
                         onChange={this.onChange}
                       ></input>
-                     
                     </div>
                     <div className="form-group">
                       <input
@@ -251,19 +249,19 @@ class Appointment extends React.Component {
                         onChange={this.onChange}
                       ></input>
                     </div>
-                    <div className="form-group">
-                      <Cascader
-                        style={{
-                          width: "50 !important",
-                          height: "35 !important",
-                        }}
-                        placeholder="Select Doctor"
-                        options={doctoptions}
-                       className={`form-control ${this.state.docClass}`}
-                        onChange={this.OndoctChange}
-                        changeOnSelect
-                      />
-                    </div>
+
+                    <Cascader
+                      style={{
+                        width: "50 !important",
+                        height: "35 !important",
+                      }}
+                      placeholder="Select Doctor"
+                      options={doctoptions}
+                      className={`form-control ${this.state.docClass}`}
+                      onChange={this.OndoctChange}
+                      changeOnSelect
+                    />
+                    <div className="form-group"></div>
                     <div className="form-group">
                       <input
                         id="datepicker-disable-past"

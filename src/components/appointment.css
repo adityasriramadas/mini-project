@@ -88,3 +88,21 @@
   font-size: 20px;
   width: 254px;
 }
+
+.ant-input.ant-cascader-input {
+  height: 24px;
+  width: 315;
+  border: 0px;
+  border-color: rgba(0, 0, 0, 0) !important;
+}
+
+.ant-cascader-picker:focus .ant-cascader-input {
+  outline: 0px !important;
+  -webkit-appearance: none;
+  box-shadow: none !important;
+  border-color: rgba(0, 0, 0, 0) !important;
+}
+
+.ant-input .ant-cascader-input::placeholder {
+  color: #252424 !important;
+}
