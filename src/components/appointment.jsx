@@ -63,15 +63,24 @@ class Appointment extends React.Component {
       name: "",
       age: "",
       number: "",
+      email: "",
       doctor: "",
       doa: "",
       toa: "",
+      nClass: "",
+      ageClass: "",
+      pnClass: "",
+      emClass: "",
+      docClass: "",
+      doaClass: "",
+      toaClass: "",
       redirect: false,
     };
     this.onClick = this.onClick.bind(this);
     this.onChange = this.onChange.bind(this);
     this.timeChange = this.timeChange.bind(this);
     this.OndoctChange = this.OndoctChange.bind(this);
+    this.validate = this.validate.bind(this);
   }
   onChange = (event) => {
     this.setState({
@@ -83,6 +92,83 @@ class Appointment extends React.Component {
       toa: time,
     });
   };
+  validate = () => {
+    var isError = false;
+    const phoneno = /^\d{10}$/;
+    // eslint-disable-next-line
+    const ema = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+    if (this.state.name === "") {
+      isError = true;
+      this.setState({
+        nClass: "is-invalid",
+      });
+    } else {
+      this.setState({
+        nClass: "is-valid",
+      });
+    }
+    if (!this.state.number.match(phoneno)) {
+      this.setState({
+        pnClass: "is-invalid",
+      });
+      isError = true;
+    } else {
+      this.setState({
+        pnClass: "is-valid",
+      });
+    }
+    if (!this.state.email.match(ema)) {
+      this.setState({
+        emClass: "is-invalid",
+      });
+      isError = true;
+    } else {
+      this.setState({
+        emClass: "is-valid",
+      });
+    }
+    if (this.state.doctor === "") {
+      isError = true;
+      this.setState({
+        docClass: "is-invalid",
+      });
+    } else {
+      this.setState({
+        docClass: "is-valid",
+      });
+    }
+    if (this.state.age === "") {
+      isError = true;
+      this.setState({
+        ageClass: "is-invalid",
+      });
+    } else {
+      this.setState({
+        ageClass: "is-valid",
+      });
+    }
+    if (this.state.toa === "") {
+      isError = true;
+      this.setState({
+        toaClass: "is-invalid",
+      });
+    } else {
+      this.setState({
+        toaClass: "is-valid",
+      });
+    }
+    if (this.state.doa === "") {
+      isError = true;
+      this.setState({
+        doaClass: "is-invalid",
+      });
+    } else {
+      this.setState({
+        doaClass: "is-valid",
+      });
+    }
+    return isError;
+  };
   OndoctChange = (doct) => {
     this.setState({
       doctor: doct,
@@ -91,29 +177,32 @@ class Appointment extends React.Component {
   onClick = (e) => {
     e.preventDefault();
     const cc = this;
+    const err = this.validate();
     var time_of_app = cc.state.toa;
-    db.collection("patients")
-      .doc(cc.state.doa)
-      .set({
-        patientDetails: {
-          name: cc.state.name,
-          age: cc.state.age,
-          email: cc.state.email,
-          phonenumber: cc.state.number,
-          doctor: cc.state.doctor,
-          doa: cc.state.doa,
-          toa: time_of_app[0],
-        },
-      })
-      .then(function () {
-        console.log("Success");
-        cc.setState({
-          redirect: true,
+    if (!err) {
+      db.collection("patients")
+        .doc(cc.state.doa)
+        .set({
+          patientDetails: {
+            name: cc.state.name,
+            age: cc.state.age,
+            phonenumber: cc.state.number,
+            email: cc.state.email,
+            doctor: cc.state.doctor,
+            doa: cc.state.doa,
+            toa: time_of_app[0],
+          },
+        })
+        .then(function () {
+          console.log("Success");
+          cc.setState({
+            redirect: true,
+          });
+        })
+        .catch(function () {
+          console.log("fail");
         });
-      })
-      .catch(function () {
-        console.log("fail");
-      });
+    }
   };
   render() {
     return (
@@ -144,13 +233,13 @@ class Appointment extends React.Component {
                               placeholder="Name of patients"
                               required="required"
                               //id="fn"
-                              //className={`form-control ${this.state.fnClass}`}
+                              className={`form-control ${this.state.nClass}`}
                               onChange={this.onChange}
                             ></input>
                           </div>
-                          {/* <div className="invalid-feedback">
-                        First name is invalid.
-                      </div> */}
+                          <div className="invalid-feedback">
+                            Name is invalid.
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -163,7 +252,7 @@ class Appointment extends React.Component {
                         max="99"
                         required="required"
                         //id="pn"
-                        // className={`form-control ${this.state.pnClass}`}
+                        className={`form-control ${this.state.ageClass}`}
                         onChange={this.onChange}
                       ></input>
                     </div>
@@ -173,7 +262,7 @@ class Appointment extends React.Component {
                         name="email"
                         placeholder="Email"
                         //id="em"
-                        // className={`form-control ${this.state.emClass}`}
+                        className={`form-control ${this.state.emClass}`}
                         onChange={this.onChange}
                       ></input>
                     </div>
@@ -182,26 +271,27 @@ class Appointment extends React.Component {
                       <input
                         type="tel"
                         pattern="[0-9]{10}"
-                        name="phonenumber"
+                        name="number"
                         placeholder="Phone Number"
                         required="required"
                         //id="pw"
-                        // className={`form-control ${this.state.pwClass}`}
+                        className={`form-control ${this.state.pnClass}`}
                         onChange={this.onChange}
                       ></input>
                     </div>
-                    <div className="form-group">
-                      <Cascader
-                        style={{
-                          width: "50 !important",
-                          height: "35 !important",
-                        }}
-                        placeholder="Select Doctor"
-                        options={doctoptions}
-                        onChange={this.OndoctChange}
-                        changeOnSelect
-                      />
-                    </div>
+
+                    <Cascader
+                      style={{
+                        width: "50 !important",
+                        height: "35 !important",
+                      }}
+                      placeholder="Select Doctor"
+                      options={doctoptions}
+                      className={`form-control ${this.state.docClass}`}
+                      onChange={this.OndoctChange}
+                      changeOnSelect
+                    />
+                    <div className="form-group"></div>
                     <div className="form-group">
                       <input
                         id="datepicker-disable-past"
@@ -210,10 +300,12 @@ class Appointment extends React.Component {
                         min={today}
                         max={max_date}
                         required="required"
+                        className={`form-control ${this.state.doaClass}`}
                         name="doa"
                         onChange={this.onChange}
                       ></input>
                     </div>
+                    
                     <Cascader
                       style={{
                         width: "341 !important",
@@ -221,13 +313,15 @@ class Appointment extends React.Component {
                       }}
                       placeholder="Time Slot"
                       options={options}
+                      className={`form-control ${this.state.toaClass}`}
                       onChange={this.timeChange}
                       changeOnSelect
                     />
-
+                    <div>
                     <button className="btn" onClick={this.onClick}>
                       Get Your Free Appointment
                     </button>
+                    </div>
                   </form>
                 </div>
               </div>

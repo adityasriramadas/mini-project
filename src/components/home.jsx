@@ -1,6 +1,7 @@
 import React from "react";
 import "./home.css";
-
+import { Link } from "react-router-dom";
+import "./appointment"
 class Home extends React.Component {
   render() {
     return (
@@ -19,9 +20,9 @@ class Home extends React.Component {
                       aliqua. Quis ipsum suspendisse ultrices gravida.Risus
                       cmodo viverra
                     </p>
-                    <a href="#" className="btn_2">
+                    <Link to="/appointment" className="btn_2">
                       Make an appointment
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -51,9 +52,9 @@ class Home extends React.Component {
                     aliqua Quis ipsum suspendisse ultrices gravida. Risus cmodo
                     viverra maecenas accumsan lacus vel
                   </p>
-                  <a className="btn_2 " href="#">
+                  <Link className="btn_2 " to="#">
                     learn more
-                  </a>
+                  </Link>
                   <div className="banner_item">
                     <div className="single_item">
                       <img src="/icon/banner_1.svg" alt="" />
