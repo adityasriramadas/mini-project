@@ -1,6 +1,12 @@
 .ls{
     color: #fff;
-    background: #19aa8d;
+     height: 935px;
+    position: relative;
+    overflow: hidden;
+    background-image: url(/banner_bg.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
     font-family: 'Roboto', sans-serif;
     text-align: center;
     

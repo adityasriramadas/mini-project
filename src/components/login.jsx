@@ -10,7 +10,7 @@ class Login extends React.Component{
     render(){
         return(
             <div className='ls'>
-
+                
                 <div className="signup-form">
                     <form>
                         <h2>Login</h2>
@@ -37,7 +37,7 @@ class Login extends React.Component{
                         <div className="form-group">
                             <button type="submit" className="btn btn-primary btn-lg">Login</button>
                         </div>
-                    </form>
+                    
                     <div className="text-center">Don't have an account?
 
                         
@@ -45,6 +45,7 @@ class Login extends React.Component{
                         
 
                     </div>
+                    </form>
                 </div>
 
                    

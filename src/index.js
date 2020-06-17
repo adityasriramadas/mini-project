@@ -8,6 +8,7 @@ import Appointment from "./components/appointment";
 import Signup from "./components/signup";
 import Home from "./components/home";
 import Confirm from "./components/Confirm";
+import Services from "./components/Services";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
@@ -29,6 +30,8 @@ class MyNavbar extends React.Component {
             <Route path="/login" component={Login}></Route>
 
             <Route path="/signup" component={Signup}></Route>
+
+            <Route path="/Services" component={Services}></Route>
 
             <Route path="/confirm" component={Confirm}></Route>
           </Switch>

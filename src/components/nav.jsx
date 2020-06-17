@@ -71,12 +71,7 @@ class Navbar extends React.Component {
                     <i className="fa fa-cogs"></i>Services
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link to="portfolio.html" className="nav-link">
-                    <i className="fa fa-briefcase"></i>Doctors
-                  </Link>
-                </li>
-
+                
                 <li className="nav-item">
                   <Link to="/About" className="nav-link">
                     <i className="fa fa-users"></i>About
@@ -88,6 +83,7 @@ class Navbar extends React.Component {
                     <i className="fa fa-users"></i>Login
                   </Link>
                 </li>
+                
                 <li className="nav-item">
                   <Link to="/appointment" className="nav-link">
                     <i className="fa fa-users"></i>BOOK NOW

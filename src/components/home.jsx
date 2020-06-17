@@ -15,10 +15,9 @@ class Home extends React.Component {
                     <h5>We are here for your care</h5>
                     <h1>Best Care &amp; Better Doctor</h1>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Quis ipsum suspendisse ultrices gravida.Risus
-                      cmodo viverra
+                      Enough waiting for an appointment.
+                      <br></br>
+                      Schedule your appointment from anywhere within minutes. 
                     </p>
                     <Link to="/appointment" className="btn_2">
                       Make an appointment
@@ -36,7 +35,7 @@ class Home extends React.Component {
         </section>
 
         <section className="about_us padding_top">
-          <div className="container">
+          <div className="about_usimx">
             <div className="row justify-content-between align-items-center">
               <div className="col-md-6 col-lg-6">
                 <div className="about_us_img">
@@ -47,10 +46,7 @@ class Home extends React.Component {
                 <div className="about_us_text">
                   <h2>About us</h2>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua Quis ipsum suspendisse ultrices gravida. Risus cmodo
-                    viverra maecenas accumsan lacus vel
+                  Health Care Hospitals was established in 2004 by Dr.Ruhi, renowned as the architect of modern healthcare in India.Health Care Hospitals is acclaimed for pioneering the private healthcare revolution in the country. Health Care Hospitals has emerged as Asia’s foremost integrated healthcare services provider and has a robust presence across the healthcare ecosystem, including Hospitals, Pharmacies, Primary Care & Diagnostic Clinics and several retail health models.
                   </p>
                   <Link className="btn_2 " to="#">
                     learn more

@@ -130,7 +130,7 @@ ul {
 
 @media (max-width: 991px) {
   .banner_part {
-    background-image: url(/bg1.png);
+    
     overflow: hidden;
     background-color: #fff;
     height: 650px;
@@ -216,7 +216,7 @@ ul {
   margin-top: 50px;
 }
 
-.about_us {
+.about_usim {
   position: relative;
   z-index: 99;
   background-image: url(/about_bg.png);

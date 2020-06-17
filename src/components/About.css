@@ -1,0 +1,14 @@
+.serv1{
+      height: 935px;
+    position: relative;
+    overflow: hidden;
+    background-image: url(/banner_bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+serv1{
+    background-color: white;
+}
