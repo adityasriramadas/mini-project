@@ -67,14 +67,19 @@ class Navbar extends React.Component {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="Services" className="nav-link">
+                  <Link to="/Services" className="nav-link">
                     <i className="fa fa-cogs"></i>Services
                   </Link>
                 </li>
-                
+                <li className="nav-item">
+                  <Link to="/Profile" className="nav-link">
+                    <i className="fa fa-medkit"></i>Doctors
+                  </Link>
+                </li>
+
                 <li className="nav-item">
                   <Link to="/About" className="nav-link">
-                    <i className="fa fa-users"></i>About
+                    <i className="fa fa-info-circle"></i>About
                   </Link>
                 </li>
 
@@ -84,12 +89,12 @@ class Navbar extends React.Component {
                   </Link>
                 </li>
                 
-                <li className="nav-item">
-                  <Link to="/appointment" className="nav-link">
-                    <i className="fa fa-users"></i>BOOK NOW
+              </ul>
+              <li className="">
+                  <Link to="/appointment" className="btn">
+                    BOOK NOW
                   </Link>
                 </li>
-              </ul>
             </div>
           </nav>
         </header>

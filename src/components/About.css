@@ -1,10 +1,10 @@
-.serv1{
+.serv{
       height: 935px;
     position: relative;
     overflow: hidden;
     background-image: url(/banner_bg.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
     background-position: center;
 
 }
