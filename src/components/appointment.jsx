@@ -8,6 +8,7 @@ require("firebase/firestore");
 
 var db = firebase.firestore();
 var date = new Date();
+date.setDate(date.getDate() + 1);
 date = date.toJSON().slice(0, 10);
 var today = date.slice(0, 4) + "-" + date.slice(5, 7) + "-" + date.slice(8, 10);
 var result = new Date();
@@ -22,38 +23,77 @@ const options = [
     label: "09:00 AM",
   },
   {
+    value: "09:30 AM",
+    label: "09:30 AM",
+  },
+  {
     value: "10:00 AM",
     label: "10:00 AM",
+  },
+  {
+    value: "10:30 AM",
+    label: "10:30 AM",
   },
   {
     value: "11:00 AM",
     label: "11:00 AM",
   },
   {
-    value: "12:00 PM",
-    label: "12:00 PM",
-  },
-  {
-    value: "02:00 PM",
-    label: "02:00 PM",
-  },
-  {
-    value: "03:00 PM",
-    label: "03:00 PM",
+    value: "11:30 AM",
+    label: "11:30 AM",
   },
 ];
 const doctoptions = [
   {
-    value: "DR.Nikhil(ENT Specl)",
-    label: "DR.Nikhil(ENT Specl)",
+    value: "ENT Specl",
+    label: "ENT Specl",
+    children: [
+      {
+        value: 'Dr.Nikhil',
+        label: 'Dr.Nikhil',
+        
+      },
+
+      {
+        value: 'Dr.Sai',
+        label: 'Dr.Sai',
+        
+      },
+    ],
   },
   {
-    value: "DR.Aditya(psychology)",
-    label: "DR.Aditya(psychology)",
+    value: "(psychology)",
+    label: "(psychology)",
+    children: [
+      {
+        value: 'Dr.Nikhil',
+        label: 'Dr.Nikhil',
+        
+      },
+
+      {
+        value: 'Dr.Sai',
+        label: 'Dr.Sai',
+        
+      },
+    ],
   },
   {
-    value: "DR.Sahith(Heart specialist)",
-    label: "DR.Sahith(Heart specialist)",
+    value: "(Heart specialist)",
+    label: "Heart specialist)",
+    children: [
+      {
+        value: 'Dr.Nikhil',
+        label: 'Dr.Nikhil',
+        
+      },
+
+      {
+        value: 'Dr.Sai',
+        label: 'Dr.Sai',
+        
+      },
+    ],
   },
 ];
 class Appointment extends React.Component {

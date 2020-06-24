@@ -2,6 +2,7 @@ import React from "react";
 import "./home.css";
 import { Link } from "react-router-dom";
 import "./appointment"
+import Footer from "./Footer";
 class Home extends React.Component {
   render() {
     return (
@@ -218,9 +219,11 @@ class Home extends React.Component {
             </div>
           </div>
         </section>
+        <Footer />
       </div>
     );
   }
 }
+
 
 export default Home;
