@@ -16,6 +16,64 @@ class Profile extends Component{
                   </div>
                 </div>
               </div>
+              <h2>Heart specialists</h2>
+              <div className="row">
+                <div className="col-sm-6 col-lg-3">
+                  <div className="single_blog_item">
+                    <div className="single_blog_img">
+                      <img src="/doctor/doctor_1.png" alt="doctor" />
+                    </div>
+                    <div className="single_text">
+                      <div className="single_blog_text">
+                        <h3>DR Adam Billiard</h3>
+                        <p>Heart specialist</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-sm-6 col-lg-3">
+                  <div className="single_blog_item">
+                    <div className="single_blog_img">
+                      <img src="/doctor/doctor_4.png" alt="doctor" />
+                    </div>
+                    <div className="single_text">
+                      <div className="single_blog_text">
+                        <h3>DR Adam Billiard</h3>
+                        <p>Medicine specialist</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-sm-6 col-lg-3">
+                  <div className="single_blog_item">
+                    <div className="single_blog_img">
+                      <img src="/doctor/doctor_2.png" alt="doctor" />
+                    </div>
+  
+                    <div className="single_text">
+                      <div className="single_blog_text">
+                        <h3>DR Fred Macyard</h3>
+                        <p>CHeart specialist</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-sm-6 col-lg-3">
+                  <div className="single_blog_item">
+                    <div className="single_blog_img">
+                      <img src="/doctor/doctor_3.png" alt="doctor" />
+                    </div>
+                    <div className="single_text">
+                      <div className="single_blog_text">
+                        <h3>DR Justin Stuard</h3>
+                        <p>Heart specialist</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h2>ENT specialists</h2>
               <div className="row">
                 <div className="col-sm-6 col-lg-3">
                   <div className="single_blog_item">
@@ -71,6 +129,10 @@ class Profile extends Component{
                   </div>
                 </div>
 
+              </div>
+
+              <h2 style={{textAlign:"left", padding:'50px', fontFamily:"Serif" }}>General physicians</h2>
+              <div className="row">
                 <div className="col-sm-6 col-lg-3">
                   <div className="single_blog_item">
                     <div className="single_blog_img">
@@ -124,60 +186,10 @@ class Profile extends Component{
                     </div>
                   </div>
                 </div>
-                
-                <div className="col-sm-6 col-lg-3">
-                  <div className="single_blog_item">
-                    <div className="single_blog_img">
-                      <img src="/doctor/doctor_1.png" alt="doctor" />
-                    </div>
-                    <div className="single_text">
-                      <div className="single_blog_text">
-                        <h3>DR Adam Billiard</h3>
-                        <p>Heart specialist</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-sm-6 col-lg-3">
-                  <div className="single_blog_item">
-                    <div className="single_blog_img">
-                      <img src="/doctor/doctor_4.png" alt="doctor" />
-                    </div>
-                    <div className="single_text">
-                      <div className="single_blog_text">
-                        <h3>DR Adam Billiard</h3>
-                        <p>Medicine specialist</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-sm-6 col-lg-3">
-                  <div className="single_blog_item">
-                    <div className="single_blog_img">
-                      <img src="/doctor/doctor_2.png" alt="doctor" />
-                    </div>
-  
-                    <div className="single_text">
-                      <div className="single_blog_text">
-                        <h3>DR Fred Macyard</h3>
-                        <p>CHeart specialist</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-sm-6 col-lg-3">
-                  <div className="single_blog_item">
-                    <div className="single_blog_img">
-                      <img src="/doctor/doctor_3.png" alt="doctor" />
-                    </div>
-                    <div className="single_text">
-                      <div className="single_blog_text">
-                        <h3>DR Justin Stuard</h3>
-                        <p>Heart specialist</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
+
+            
+
 
               </div>
             </div>
