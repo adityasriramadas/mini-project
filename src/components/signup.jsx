@@ -200,7 +200,7 @@ class Signup extends Component {
                 <div className="form-group">
                   <label>Phone Number</label>
                   <input
-                    type="number"
+                    type="tel"
                     name="phonenumber"
                     id="pn"
                     className={`form-control ${this.state.pnClass}`}
