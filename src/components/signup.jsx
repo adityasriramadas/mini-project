@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import firebase from "../firebase";
 import "./signup.css";
-//import { connect } from "react-redux";
-//import {Redirect} from "react-router-dom";
-//import { login, setUserDetails } from "../actions/loginaction";
+import { connect } from "react-redux";
+import {Redirect} from "react-router-dom";
+import { login, setUserDetails } from "../actions/loginActions";
 
 import _ from "lodash";
-//require("firebase/firestore");
+require("firebase/firestore"); 
 const crypto = require("crypto");
 
 var db = firebase.firestore();
@@ -125,7 +125,6 @@ class Signup extends Component {
               personalInfo: {
                 uid: cred.user.uid,
                 username: this.state.username,
-                
                 email: this.state.email,
                 phonenumber: this.state.phonenumber,
                 password: hash_password,
@@ -140,7 +139,7 @@ class Signup extends Component {
                   var userRef = db.collection("user").doc(user.uid);
                   userRef.get().then(function (doc) {
                     if (doc.exists) {
-                      //console.log("Rider Signup");
+                     
                       var data = doc.data().personalInfo;
                       cc.props.setUserDetails(data);
                       cc.props.login();
@@ -153,11 +152,7 @@ class Signup extends Component {
         .catch(function (error) {
           var errorCode = error.code;
           var errorMessage = error.message;
-          if (errorCode === "auth/too-many-requests") {
-            cc.setState({ reqLimitEx: true });
-          } else {
-            cc.setState({ reqLimitEx: false });
-          }
+          
           if (errorCode === "auth/email-already-in-use") {
             cc.setState({
               isMember: true,
@@ -170,7 +165,17 @@ class Signup extends Component {
   };
   render() {
     return (
-      
+      <div>{this.state.isMember ? (
+        <div
+          className="alert alert-danger fade show text-center w-30"
+          role="alert"
+        >
+          Already a member.
+        </div>
+      ) : (
+        ""
+      )}
+      {this.props.loginStatus.status ? <Redirect to="/" /> : ""}
       <div className='ls' >
           <div className="signup-form">
                     <form>
@@ -255,10 +260,15 @@ class Signup extends Component {
               
             </div>
             </div>
+            </div>
           
        
     );
   }
 }
+const mapStateToProps = (state) => ({
+  loginStatus: state.loginStatus,
+});
 
-export default Signup;
+export default connect(mapStateToProps, { login, setUserDetails })(Signup);
+

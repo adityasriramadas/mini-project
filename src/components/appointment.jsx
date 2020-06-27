@@ -3,8 +3,12 @@ import { Cascader } from "antd";
 import "antd/dist/antd.css";
 import firebase from "../firebase";
 import "./appointment.css";
+//import { login, setUserDetails } from "../actions/loginActions";
+import { connect } from "react-redux";
 import { Redirect } from "react-router";
 require("firebase/firestore");
+
+
 
 var db = firebase.firestore();
 var date = new Date();
@@ -42,6 +46,18 @@ const options = [
     value: "11:30 AM",
     label: "11:30 AM",
   },
+];
+
+const patienttype = [
+  {
+    value: "New Patient",
+    label: "New Patient",
+  },
+  {
+    value: "Existing Patient",
+    label: "Existing Patient",
+  }
+  
 ];
 const doctoptions = [
   {
@@ -105,6 +121,7 @@ class Appointment extends React.Component {
       number: "",
       email: "",
       doctor: "",
+      typ:"",
       doa: "",
       toa: "",
       nClass: "",
@@ -112,6 +129,7 @@ class Appointment extends React.Component {
       pnClass: "",
       emClass: "",
       docClass: "",
+      typClass:"",
       doaClass: "",
       toaClass: "",
       redirect: false,
@@ -119,8 +137,10 @@ class Appointment extends React.Component {
     this.onClick = this.onClick.bind(this);
     this.onChange = this.onChange.bind(this);
     this.timeChange = this.timeChange.bind(this);
+    
     this.OndoctChange = this.OndoctChange.bind(this);
     this.validate = this.validate.bind(this);
+    this.typePatient=this.typePatient.bind(this);
   }
   onChange = (event) => {
     this.setState({
@@ -130,6 +150,11 @@ class Appointment extends React.Component {
   timeChange = (time) => {
     this.setState({
       toa: time,
+    });
+  };
+  typePatient = (type) => {
+    this.setState({
+      typ: type,
     });
   };
   validate = () => {
@@ -177,6 +202,16 @@ class Appointment extends React.Component {
         docClass: "is-valid",
       });
     }
+    if (this.state.typ === "") {
+      isError = true;
+      this.setState({
+        typClass: "is-invalid",
+      });
+    } else {
+      this.setState({
+        typClass: "is-valid",
+      });
+    }
     if (this.state.age === "") {
       isError = true;
       this.setState({
@@ -214,6 +249,7 @@ class Appointment extends React.Component {
       doctor: doct,
     });
   };
+
   onClick = (e) => {
     e.preventDefault();
     const cc = this;
@@ -245,6 +281,10 @@ class Appointment extends React.Component {
     }
   };
   render() {
+    const {  userDetails } = this.props;
+    if (userDetails && userDetails.userType !== "user")
+      return <Redirect to="/Login" />;
+
     return (
       <div>
         {this.state.redirect && <Redirect to="/confirm" />}
@@ -319,7 +359,7 @@ class Appointment extends React.Component {
                         onChange={this.onChange}
                       ></input>
                     </div>
-
+                  <div>
                     <Cascader
                       style={{
                         width: "50 !important",
@@ -331,7 +371,26 @@ class Appointment extends React.Component {
                       onChange={this.OndoctChange}
                       changeOnSelect
                     />
-                    <div className="form-group"></div>
+                    </div>
+                    <div  className="form-group">
+                     
+                    </div>
+                    <div className="form-group">
+                    
+                    <Cascader
+                      style={{
+                        width: "50 !important",
+                        height: "18 !important",
+                      }}
+                      placeholder="Patient Type"
+                      options={patienttype}
+                      className={`form-control ${this.state.typClass}`}
+                      onChange={this.typePatient}
+                      changeOnSelect
+                    />
+
+                    </div>
+                   
                     <div className="form-group">
                       <input
                         id="datepicker-disable-past"
@@ -372,5 +431,11 @@ class Appointment extends React.Component {
     );
   }
 }
+const mapStateToProps = (state) => ({
+  userDetails: state.loginStatus.userDetails,
+  
+});
 
-export default Appointment;
+export default connect(mapStateToProps, {
+  
+})(Appointment);

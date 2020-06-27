@@ -2,6 +2,7 @@ import React from "react";
 import "./home.css";
 import { Link } from "react-router-dom";
 import "./appointment"
+import { connect } from "react-redux"
 import Footer from "./Footer";
 class Home extends React.Component {
   render() {
@@ -225,5 +226,10 @@ class Home extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  isVerified: state.loginStatus.isVerified,
+  userDetails: state.loginStatus.userDetails,
+  loginStatus: state.loginStatus,
+});
 
-export default Home;
+export default connect(mapStateToProps, null)(Home);

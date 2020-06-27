@@ -1,18 +1,17 @@
 import React, { Component } from "react";
 import "./login.css";
 import { FormGroup } from "react-bootstrap";
-
 import { Button, Form, Label, Input, Alert } from "reactstrap";
-
+import { connect } from "react-redux";
 import firebase from "../firebase";
-import {  Link } from "react-router-dom";
-
+import { Redirect, Link } from "react-router-dom";
+import { login, logout, setUserDetails } from "../actions/loginActions"
 import _ from "lodash";
 
 
 require("firebase/firestore");
 
-class login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +19,7 @@ class login extends Component {
       password: "",
       invalidEmail: false,
       invalidPassword: false,
-      // redi: false,
+ 
       noacc: false,
       
       
@@ -29,14 +28,7 @@ class login extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.login = this.login.bind(this);
   }
-  // UNSAFE_componentWillMount() {
-  //   var cc = this;
-  //   firebase.auth().onAuthStateChanged(function (user) {
-  //     if (user) {
-  //       cc.props.login();
-  //     }
-  //   });
-  // }
+  
 
   handleChange = (event) => {
     this.setState({
@@ -95,9 +87,10 @@ class login extends Component {
   };
 
   render() {
-    
+    if (this.props.loginStatus.status) return <Redirect to="/" />;
+
     return (
-      <div>
+      <div  >
        
         <Form className="login-form">
           <div>
@@ -161,5 +154,12 @@ class login extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  loginStatus: state.loginStatus,
+});
 
-export default  login;
+export default connect(mapStateToProps, { login, logout, setUserDetails })(
+  Login
+);
+
+

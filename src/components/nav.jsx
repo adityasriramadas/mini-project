@@ -1,23 +1,51 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./nav.css";
+import { connect } from "react-redux";
+import { Menu, Dropdown, Button } from "antd";
+import { setItem } from "../actions/userActions";
+import firebase from "../firebase";
+import { logout, setUserDetails } from "../actions/loginActions";
 
 class Navbar extends React.Component {
   constructor(props) {
+    
     super(props);
-
+    this.signout = this.signout.bind(this);
     this.toggleNavbar = this.toggleNavbar.bind(this);
 
     this.state = {
       collapsed: true,
     };
+    
+
   }
+  signout = () => {
+    const cc = this;
+    firebase
+      .auth()
+      .signOut()
+      .then(function () {
+        cc.props.logout();
+        cc.props.setUserDetails(null);
+        // console.log("Sign-out successful.");
+      })
+      .catch(function (error) {
+        console.log("An error happened.");
+      });
+  };
+
 
   toggleNavbar() {
     this.setState({
       collapsed: !this.state.collapsed,
     });
   }
+  onItemClick = (event) => {
+    if (event.key === "2") {
+      this.signout();
+    }
+  };
 
   render() {
     const collapsed = this.state.collapsed;
@@ -59,7 +87,7 @@ class Navbar extends React.Component {
               id="mainMenu"
               onClick={this.toggleNavbar}
             >
-              <ul className="navbar-nav ml-auto navList">
+            <ul className="navbar-nav ml-auto navList">
                 <li className="nav-item active">
                   <Link to="/" className="nav-link">
                     <i className="fa fa-home"></i>HOME
@@ -88,13 +116,13 @@ class Navbar extends React.Component {
                     <i className="fa fa-users"></i>Login
                   </Link>
                 </li>
-                
-              </ul>
-              <li className="">
+                <li className="">
                   <Link to="/appointment" className="btn">
                     BOOK NOW
                   </Link>
                 </li>
+            </ul>
+              
             </div>
           </nav>
         </header>
@@ -102,5 +130,14 @@ class Navbar extends React.Component {
     );
   }
 }
+const mapStateToProps = (state) => ({
+  status: state.loginStatus.status,
+  checking: state.loginStatus.checking,
+  userDetails: state.loginStatus.userDetails,
+  userAction: state.userAction,
+});
 
-export default Navbar;
+export default connect(mapStateToProps, { setItem, logout, setUserDetails })(
+  Navbar
+);
+

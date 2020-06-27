@@ -9,7 +9,10 @@ import Confirm from "./components/Confirm";
 import Services from "./components/Services";
 import Profile from "./components/Profile";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
+import firebase from "./firebase";
+import { connect } from "react-redux";
+import { setUserDetails, login, resetChecking } from "./actions/loginActions";
+require("firebase/firestore");
 class App extends React.Component {
   render() {
     return (
@@ -19,6 +22,7 @@ class App extends React.Component {
 
           <Switch>
             <Route exact path="/" component={Home}></Route>
+            
             <Route path="/appointment" component={Appointment}></Route>
 
             <Route path="/About" component={About}></Route>
