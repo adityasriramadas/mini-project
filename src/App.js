@@ -11,10 +11,32 @@ import Profile from "./components/Profile";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import firebase from "./firebase";
 import { connect } from "react-redux";
-import { setUserDetails, login, resetChecking } from "./actions/loginActions";
+import { setUserDetails, login } from "./actions/loginActions";
 import "font-awesome/css/font-awesome.min.css";
 require("firebase/firestore");
 class App extends React.Component {
+  constructor() {
+    super();
+  }
+  componentDidMount() {
+    const cc = this;
+    const db = firebase.firestore();
+    var data;
+    let unsubscribe = firebase.auth().onAuthStateChanged(function (user) {
+      unsubscribe();
+      if (user) {
+        var userRef = db.collection("user").doc(user.uid);
+        userRef.get().then(function (doc) {
+          if (doc.exists) {
+            // console.log("rider exists constructor");
+            data = doc.data().personalInfo;
+            cc.props.setUserDetails(data);
+            cc.props.login();
+          }
+        });
+      }
+    });
+  }
   render() {
     return (
       <div>
@@ -44,4 +66,9 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  userDetails: state.loginStatus.userDetails,
+  loginStatus: state.loginStatus,
+});
+
+export default connect(mapStateToProps, { login, setUserDetails })(App);
