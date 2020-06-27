@@ -115,7 +115,6 @@ class Navbar extends React.Component {
                   <li className="nav-item" onClick={this.signout}>
                     <Link to="/" className="nav-link">
                       <i className="fa fa-users"></i>
-                      
                       {this.props.userDetails.username}
                     </Link>
                   </li>

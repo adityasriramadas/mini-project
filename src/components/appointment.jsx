@@ -6,8 +6,11 @@ import "./appointment.css";
 //import { login, setUserDetails } from "../actions/loginActions";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
-require("firebase/firestore");
+import { message } from "antd";
 
+require("firebase/auth");
+require("firebase/database");
+var firebasee = require("firebase/app");
 var db = firebase.firestore();
 var date = new Date();
 date.setDate(date.getDate() + 1);
@@ -62,12 +65,12 @@ const doctoptions = [
     label: "ENT Specl",
     children: [
       {
-        value: "Dr.Nikhil",
+        value: "Dr Nikhil",
         label: "Dr.Nikhil",
       },
 
       {
-        value: "Dr.Sai",
+        value: "Dr Sai",
         label: "Dr.Sai",
       },
     ],
@@ -77,12 +80,12 @@ const doctoptions = [
     label: "(psychology)",
     children: [
       {
-        value: "Dr.Nikhil",
+        value: "Dr Nikhil",
         label: "Dr.Nikhil",
       },
 
       {
-        value: "Dr.Sai",
+        value: "Dr Sai",
         label: "Dr.Sai",
       },
     ],
@@ -92,12 +95,12 @@ const doctoptions = [
     label: "Heart specialist)",
     children: [
       {
-        value: "Dr.Nikhil",
+        value: "Dr Nikhil",
         label: "Dr.Nikhil",
       },
 
       {
-        value: "Dr.Sai",
+        value: "Dr Sai",
         label: "Dr.Sai",
       },
     ],
@@ -124,6 +127,7 @@ class Appointment extends React.Component {
       doaClass: "",
       toaClass: "",
       redirect: false,
+      count: 0,
     };
     this.onClick = this.onClick.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -140,7 +144,7 @@ class Appointment extends React.Component {
   };
   timeChange = (time) => {
     this.setState({
-      toa: time,
+      toa: time[0],
     });
   };
   typePatient = (type) => {
@@ -243,31 +247,49 @@ class Appointment extends React.Component {
 
   onClick = (e) => {
     e.preventDefault();
+    //console.log(this.state.doctor[1]);
     const cc = this;
     const err = this.validate();
     var time_of_app = cc.state.toa;
+    var size;
     if (!err) {
       db.collection("patients")
         .doc(cc.state.doa)
-        .set({
-          patientDetails: {
-            name: cc.state.name,
-            age: cc.state.age,
-            phonenumber: cc.state.number,
-            email: cc.state.email,
-            doctor: cc.state.doctor,
-            doa: cc.state.doa,
-            toa: time_of_app[0],
-          },
+        .collection(cc.state.doctor[1])
+        .doc(cc.state.toa)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            message.error("This Slot is filled. Choose another slot.");
+          } else {
+            db.collection("patients")
+              .doc(cc.state.doa)
+              .collection(cc.state.doctor[1])
+              .doc(time_of_app)
+              .set({
+                patientDetails: {
+                  name: cc.state.name,
+                  age: cc.state.age,
+                  phonenumber: cc.state.number,
+                  email: cc.state.email,
+                  doctor: cc.state.doctor,
+                  doa: cc.state.doa,
+                  toa: time_of_app,
+                },
+              })
+              .then(function () {
+                console.log("Success");
+                cc.setState({
+                  redirect: true,
+                });
+              })
+              .catch(function (error) {
+                console.log(error.message);
+              });
+          }
         })
-        .then(function () {
-          console.log("Success");
-          cc.setState({
-            redirect: true,
-          });
-        })
-        .catch(function () {
-          console.log("fail");
+        .catch(function (error) {
+          console.log(error.message);
         });
     }
   };

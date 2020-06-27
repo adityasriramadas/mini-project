@@ -12,6 +12,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import firebase from "./firebase";
 import { connect } from "react-redux";
 import { setUserDetails, login, resetChecking } from "./actions/loginActions";
+import "font-awesome/css/font-awesome.min.css";
 require("firebase/firestore");
 class App extends React.Component {
   render() {
@@ -22,7 +23,7 @@ class App extends React.Component {
 
           <Switch>
             <Route exact path="/" component={Home}></Route>
-            
+
             <Route path="/appointment" component={Appointment}></Route>
 
             <Route path="/About" component={About}></Route>
@@ -37,7 +38,6 @@ class App extends React.Component {
 
             <Route path="/confirm" component={Confirm}></Route>
           </Switch>
-        
         </BrowserRouter>
       </div>
     );
