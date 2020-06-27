@@ -8,8 +8,6 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router";
 require("firebase/firestore");
 
-
-
 var db = firebase.firestore();
 var date = new Date();
 date.setDate(date.getDate() + 1);
@@ -56,8 +54,7 @@ const patienttype = [
   {
     value: "Existing Patient",
     label: "Existing Patient",
-  }
-  
+  },
 ];
 const doctoptions = [
   {
@@ -65,15 +62,13 @@ const doctoptions = [
     label: "ENT Specl",
     children: [
       {
-        value: 'Dr.Nikhil',
-        label: 'Dr.Nikhil',
-        
+        value: "Dr.Nikhil",
+        label: "Dr.Nikhil",
       },
 
       {
-        value: 'Dr.Sai',
-        label: 'Dr.Sai',
-        
+        value: "Dr.Sai",
+        label: "Dr.Sai",
       },
     ],
   },
@@ -82,15 +77,13 @@ const doctoptions = [
     label: "(psychology)",
     children: [
       {
-        value: 'Dr.Nikhil',
-        label: 'Dr.Nikhil',
-        
+        value: "Dr.Nikhil",
+        label: "Dr.Nikhil",
       },
 
       {
-        value: 'Dr.Sai',
-        label: 'Dr.Sai',
-        
+        value: "Dr.Sai",
+        label: "Dr.Sai",
       },
     ],
   },
@@ -99,15 +92,13 @@ const doctoptions = [
     label: "Heart specialist)",
     children: [
       {
-        value: 'Dr.Nikhil',
-        label: 'Dr.Nikhil',
-        
+        value: "Dr.Nikhil",
+        label: "Dr.Nikhil",
       },
 
       {
-        value: 'Dr.Sai',
-        label: 'Dr.Sai',
-        
+        value: "Dr.Sai",
+        label: "Dr.Sai",
       },
     ],
   },
@@ -121,7 +112,7 @@ class Appointment extends React.Component {
       number: "",
       email: "",
       doctor: "",
-      typ:"",
+      typ: "",
       doa: "",
       toa: "",
       nClass: "",
@@ -129,7 +120,7 @@ class Appointment extends React.Component {
       pnClass: "",
       emClass: "",
       docClass: "",
-      typClass:"",
+      typClass: "",
       doaClass: "",
       toaClass: "",
       redirect: false,
@@ -137,10 +128,10 @@ class Appointment extends React.Component {
     this.onClick = this.onClick.bind(this);
     this.onChange = this.onChange.bind(this);
     this.timeChange = this.timeChange.bind(this);
-    
+
     this.OndoctChange = this.OndoctChange.bind(this);
     this.validate = this.validate.bind(this);
-    this.typePatient=this.typePatient.bind(this);
+    this.typePatient = this.typePatient.bind(this);
   }
   onChange = (event) => {
     this.setState({
@@ -281,12 +272,9 @@ class Appointment extends React.Component {
     }
   };
   render() {
-    const {  userDetails } = this.props;
-    if (userDetails && userDetails.userType !== "user")
-      return <Redirect to="/Login" />;
-
     return (
       <div>
+        {!this.props.status && <Redirect to="/login" />}
         {this.state.redirect && <Redirect to="/confirm" />}
         <div class="appointment_sec">
           <div class="container">
@@ -359,38 +347,34 @@ class Appointment extends React.Component {
                         onChange={this.onChange}
                       ></input>
                     </div>
-                  <div>
-                    <Cascader
-                      style={{
-                        width: "50 !important",
-                        height: "35 !important",
-                      }}
-                      placeholder="Select Doctor"
-                      options={doctoptions}
-                      className={`form-control ${this.state.docClass}`}
-                      onChange={this.OndoctChange}
-                      changeOnSelect
-                    />
+                    <div>
+                      <Cascader
+                        style={{
+                          width: "50 !important",
+                          height: "35 !important",
+                        }}
+                        placeholder="Select Doctor"
+                        options={doctoptions}
+                        className={`form-control ${this.state.docClass}`}
+                        onChange={this.OndoctChange}
+                        changeOnSelect
+                      />
                     </div>
-                    <div  className="form-group">
-                     
-                    </div>
+                    <div className="form-group"></div>
                     <div className="form-group">
-                    
-                    <Cascader
-                      style={{
-                        width: "50 !important",
-                        height: "18 !important",
-                      }}
-                      placeholder="Patient Type"
-                      options={patienttype}
-                      className={`form-control ${this.state.typClass}`}
-                      onChange={this.typePatient}
-                      changeOnSelect
-                    />
-
+                      <Cascader
+                        style={{
+                          width: "50 !important",
+                          height: "18 !important",
+                        }}
+                        placeholder="Patient Type"
+                        options={patienttype}
+                        className={`form-control ${this.state.typClass}`}
+                        onChange={this.typePatient}
+                        changeOnSelect
+                      />
                     </div>
-                   
+
                     <div className="form-group">
                       <input
                         id="datepicker-disable-past"
@@ -404,7 +388,7 @@ class Appointment extends React.Component {
                         onChange={this.onChange}
                       ></input>
                     </div>
-                    
+
                     <Cascader
                       style={{
                         width: "341 !important",
@@ -417,9 +401,9 @@ class Appointment extends React.Component {
                       changeOnSelect
                     />
                     <div>
-                    <button className="btn" onClick={this.onClick}>
-                      Get Your Free Appointment
-                    </button>
+                      <button className="btn" onClick={this.onClick}>
+                        Get Your Free Appointment
+                      </button>
                     </div>
                   </form>
                 </div>
@@ -433,9 +417,7 @@ class Appointment extends React.Component {
 }
 const mapStateToProps = (state) => ({
   userDetails: state.loginStatus.userDetails,
-  
+  status: state.loginStatus.status,
 });
 
-export default connect(mapStateToProps, {
-  
-})(Appointment);
+export default connect(mapStateToProps, {})(Appointment);

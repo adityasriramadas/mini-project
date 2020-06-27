@@ -9,7 +9,6 @@ import { logout, setUserDetails } from "../actions/loginActions";
 
 class Navbar extends React.Component {
   constructor(props) {
-    
     super(props);
     this.signout = this.signout.bind(this);
     this.toggleNavbar = this.toggleNavbar.bind(this);
@@ -17,8 +16,6 @@ class Navbar extends React.Component {
     this.state = {
       collapsed: true,
     };
-    
-
   }
   signout = () => {
     const cc = this;
@@ -34,7 +31,6 @@ class Navbar extends React.Component {
         console.log("An error happened.");
       });
   };
-
 
   toggleNavbar() {
     this.setState({
@@ -87,11 +83,10 @@ class Navbar extends React.Component {
               id="mainMenu"
               onClick={this.toggleNavbar}
             >
-            <ul className="navbar-nav ml-auto navList">
+              <ul className="navbar-nav ml-auto navList">
                 <li className="nav-item active">
                   <Link to="/" className="nav-link">
-                    <i className="fa fa-home"></i>HOME
-                    <span className="sr-only">(current)</span>
+                    <i className="fa fa-home"></i>Home
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -110,19 +105,27 @@ class Navbar extends React.Component {
                     <i className="fa fa-info-circle"></i>About
                   </Link>
                 </li>
-
                 <li className="nav-item">
-                  <Link to="/login" className="nav-link">
-                    <i className="fa fa-users"></i>Login
+                  <Link to="/appointment" className="nav-link">
+                    <i className="fa fa-users"></i>
+                    Book Now
                   </Link>
                 </li>
-                <li className="">
-                  <Link to="/appointment" className="btn">
-                    BOOK NOW
-                  </Link>
-                </li>
-            </ul>
-              
+                {this.props.status ? (
+                  <li className="nav-item">
+                    <Link to="/" className="nav-link">
+                      <i className="fa fa-users"></i>
+                      {this.props.userDetails.username}
+                    </Link>
+                  </li>
+                ) : (
+                  <li className="nav-item">
+                    <Link to="/login" className="nav-link">
+                      <i class="fa fa-user" aria-hidden="true"></i> Log In
+                    </Link>
+                  </li>
+                )}
+              </ul>
             </div>
           </nav>
         </header>
@@ -140,4 +143,3 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, { setItem, logout, setUserDetails })(
   Navbar
 );
-

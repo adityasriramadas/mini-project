@@ -107,3 +107,8 @@
 .ant-input .ant-cascader-input::placeholder {
   color: #252424 !important;
 }
+
+.button {
+  background-color: #48f348;
+  border-radius: 5px;
+}

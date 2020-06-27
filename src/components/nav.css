@@ -1,70 +1,64 @@
-body
-{
-    font-family: 'Montserrat', sans-serif;
+body {
+  font-family: "Montserrat", sans-serif;
 }
-.navbar
-{
-    background-color: #000000;
+.navbar {
+  background-color: #000000;
 }
 
-.navbar ul
-{
-padding: 0px 30px 0px 0px;
+.navbar ul {
+  padding: 0px 30px 0px 0px;
 }
-.navbar ul li a{
-    color: white;
-    margin: 10px 0px 0px 10px;
-    
-    text-transform: uppercase;
-    font-size: 12px;
+.navbar ul li a {
+  color: white;
+  margin: 10px 0px 0px 10px;
+
+  text-transform: uppercase;
+  font-size: 12px;
 }
-.navbar ul li a .fas{
-    padding-right:5px; 
-    padding-left:5px;
-    
+.navbar ul li a .fas {
+  padding-right: 5px;
+  padding-left: 5px;
 }
-.navbar ul li a:hover{
-    background-color: #4E4C45;
-    border-radius: 40px;
+.navbar ul li a:hover {
+  background-color: #4e4c45;
+  border-radius: 40px;
 }
 
-.logo a:hover{
-    text-decoration: none;
+.logo a:hover {
+  text-decoration: none;
 }
 
-.logo div{
-
-    color:#FFF;
-    font-Size:15px;
-    font-Weight:600;
+.logo div {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
 }
 .navbar ul li.active > a {
-    
-    font-weight: bold;
-    font-size: 12px;
+  font-weight: bold;
+  font-size: 12px;
 
-    border-radius: 40px;
+  border-radius: 40px;
 }
 
+.navbar .btn {
+  display: inline-block;
+  background-color: #48f348;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 2px;
+  font-family: "Roboto", sans-serif;
+  background-size: 200% auto;
+  border-radius: 5px;
+}
 
-    .navbar .btn {
-        display: inline-block;
-        background-color: #48f348;
-        padding: 10px 20px;
-        text-align: center;
-        font-size: 14px;
-        color: #fff;
-        text-transform: uppercase;
-        border-radius: 2px;
-        font-family: "Roboto", sans-serif;
-        background-size: 200% auto;
-        border-radius: 5px;
-    
-        
-      }
+.navbar .btn:hover {
+  color: #fff;
+  background-position: center right;
+}
 
-      .navbar .btn:hover {
-        color: #fff;
-        background-position: center right;
-        
-      }
+.fa {
+  color: #ffffff !important;
+}
