@@ -56,7 +56,7 @@ class Navbar extends React.Component {
       <div>
         <header>
           <nav className="navbar navbar-expand-lg navStyle sticky-top">
-            <div class="logo" align="center">
+            <div className="logo" align="center">
               <Link className="brand-navbar" to="#">
                 <img src="doc1.svg" alt="Responsive" height="50px"></img>
                 <div>Health Care</div>
@@ -122,7 +122,7 @@ class Navbar extends React.Component {
                 ) : (
                   <li className="nav-item">
                     <Link to="/login" className="nav-link">
-                      <i class="fa fa-user" aria-hidden="true"></i> Log In
+                      <i className="fa fa-user" aria-hidden="true"></i> Log In
                     </Link>
                   </li>
                 )}
