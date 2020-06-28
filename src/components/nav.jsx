@@ -89,11 +89,7 @@ class Navbar extends React.Component {
                     <i className="fa fa-home"></i>Home
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link to="/Services" className="nav-link">
-                    <i className="fa fa-cogs"></i>Services
-                  </Link>
-                </li>
+               
                 <li className="nav-item">
                   <Link to="/Profile" className="nav-link">
                     <i className="fa fa-medkit"></i>Doctors
@@ -105,12 +101,23 @@ class Navbar extends React.Component {
                     <i className="fa fa-info-circle"></i>About
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link to="/appointment" className="nav-link">
-                    <i className="fa fa-users"></i>
-                    Book Now
-                  </Link>
-                </li>
+                
+                  {this.props.status &&
+                  this.props.userDetails.uid === "pIQDesekmvhsI62jdeo7jMfDywl1" ? (
+                    <li className="nav-item">
+                    <Link to="/Services">
+                      <div className="nav-item nav-link">Adimi Now</div>
+                    </Link>
+                    </li>
+                  ) : (
+                    <li className="nav-item">
+                      <Link to="/appointment">
+                        <div className="nav-item nav-link">Book Now </div>
+                      </Link>
+                    </li>
+                  )}
+              
+                
                 {this.props.status ? (
                   <li className="nav-item" onClick={this.signout}>
                     <Link to="/" className="nav-link">

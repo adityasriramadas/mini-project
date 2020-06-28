@@ -1,9 +1,173 @@
-.serv {
-    height: 935px;
-    position: relative;
-    overflow: hidden;
-    background-image: url(/banner_bg.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+#bootstrap-overrides .form-control {
+  border-radius: 1rem;
+}
+
+/* #bootstrap-overrides .form-control:focus {
+  background-color: "black";
+} */
+
+.default-interaction-console {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  padding: 3% 2%;
+  width: 382px !important;
+  margin: auto;
+  background-color: white;
+  border: 0.04rem solid black;
+  border-radius: 1rem;
+}
+
+.schedule-later,
+.driver-details,
+.selected-driver-details,
+.thank-you {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  padding: 1% 2%;
+  width: 382px;
+  margin: auto;
+  background-color: white;
+  border: 0.04rem solid black;
+  border-radius: 1rem;
+}
+
+.selected-driver-details {
+  width: 395px;
+}
+
+.driver-details {
+  padding-bottom: 2.5%;
+}
+
+.driver-details-container {
+  max-height: 310px;
+  overflow-y: scroll;
+}
+
+.selected-driver-details-container,
+.thank-you-container {
+  padding-top: 10px;
+  max-height: 299px;
+  overflow-y: scroll;
+  box-shadow: inset 0 -2px 5px -3px #888;
+}
+
+.thank-you-container {
+  box-shadow: none;
+}
+
+.driver-photo {
+  align-items: center;
+  text-align: center;
+}
+
+.driver-photo > span.ant-avatar {
+  margin-top: 0 !important;
+  width: 30% !important;
+  height: 30% !important;
+  border-radius: 10% !important;
+}
+
+.labels {
+  padding-left: 0.5rem;
+  color: #525252;
+  margin-bottom: 0.075rem;
+}
+
+.estimated {
+  padding-left: 0.5rem;
+}
+
+.book {
+  margin-left: 0.5rem;
+  width: stretch !important;
+}
+
+.schedule {
+  right: 0.5rem;
+}
+
+.fill-button {
+  margin-left: 0.5rem;
+  width: 98% !important;
+}
+
+.fill-options {
+  margin-left: 0.5rem;
+  width: 100% !important;
+}
+
+.scheduleOptions {
+  max-height: 220px;
+  overflow-y: scroll;
+}
+
+.scheduleOptions::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 0 8px 8px 0;
+}
+
+.scheduleOptions::-webkit-scrollbar-thumb {
+  background: #525861;
+  border-radius: 8px;
+}
+
+.choose {
+  text-align: center;
+  font-size: 27px;
+  padding-bottom: 2px;
+  word-spacing: 0.01px;
+  font-family: "Roboto", sans-serif;
+}
+
+.thank-you .choose {
+  padding-bottom: 0px;
+}
+
+.content {
+  text-align: center;
+  font-size: 12px;
+  word-spacing: 0.01px;
+  font-family: "Roboto", sans-serif;
+}
+
+.selected-driver-details .choose {
+  padding-bottom: 0px;
+}
+
+.active-select {
+  border-radius: 20px !important;
+  background-color: rgb(242, 250, 253);
+}
+
+.payment-method {
+  color: #484f57;
+  font-family: "Roboto", sans-serif;
+}
+
+.fare {
+  color: #979797;
+  /* color: #6c7b95; */
+}
+
+@media (max-width: 800px) {
+  .default-interaction-console,
+  .schedule-later,
+  .driver-details {
+    top: auto;
+    left: 0%;
+    bottom: 0%;
+    width: 100% !important;
+    border: none;
+    border-radius: 0rem;
+    -webkit-box-shadow: 0 8px 6px 6px black;
+    -moz-box-shadow: 0 8px 6px 6px black;
+    box-shadow: 0 8px 6px 6px black;
   }
+
+  .default-interaction-console {
+    padding: 6% 5% 8% 5% !important;
+  }
+}
