@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import firebase from "../firebase";
 import "./signup.css";
 import { connect } from "react-redux";
-import {Redirect} from "react-router-dom";
+import {Redirect,Link} from "react-router-dom";
 import { login, setUserDetails } from "../actions/loginActions";
 
 import _ from "lodash";
@@ -179,11 +179,11 @@ class Signup extends Component {
       <div className='ls' >
           <div className="signup-form">
                     <form>
-                    <span className="font-weight-bold" style={{ marginBottom: "20px" }}>
-                        Signup
-                        </span>
-                                 
-                                    <p>Please fill in this form to create an account!</p>
+                    <h1>
+            <span className="font-weight-bold" style={{ marginBottom: "20px" }}>
+             Signup
+            </span>
+          </h1>
                         
                
                     <div className="form-group">
@@ -192,6 +192,7 @@ class Signup extends Component {
                         type="text"
                         name="username"
                         id="un"
+                        placeholder='username'
                         className={`form-control ${this.state.Unclass}`}
                         onChange={this.onChange}
                       ></input>
@@ -206,6 +207,7 @@ class Signup extends Component {
                     type="tel"
                     name="phonenumber"
                     id="pn"
+                    placeholder='phone number'
                     className={`form-control ${this.state.pnClass}`}
                     onChange={this.onChange}
                   ></input>
@@ -219,6 +221,7 @@ class Signup extends Component {
                     type="email"
                     name="email"
                     id="em"
+                    placeholder='email'
                     className={`form-control ${this.state.emClass}`}
                     onChange={this.onChange}
                   ></input>
@@ -230,6 +233,7 @@ class Signup extends Component {
                     type="password"
                     name="password"
                     id="pw"
+                    placeholder='password'
                     className={`form-control ${this.state.pwClass}`}
                     onChange={this.onChange}
                   ></input>
@@ -245,6 +249,7 @@ class Signup extends Component {
                     type="password"
                     name="confirm_password"
                     id="cpw"
+                    placeholder='password'
                     className={`form-control ${this.state.cpwClass}`}
                     onChange={this.onChange}
                   ></input>
@@ -254,11 +259,15 @@ class Signup extends Component {
                 </div>
                 <button
                   type="button"
-                  className="btn btn-dark btn-lg"
+                  className="btn-lg btn-dark btn-block"
                   onClick={this.handleClick}
                 >
                   Sign up
                 </button>
+                <br/>
+                <label className="label">
+            <Link to="/login">Already have an account? Login</Link>
+          </label>
               </form>
               
             </div>

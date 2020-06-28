@@ -3,7 +3,7 @@
   position: relative;
   z-index: 1;
   background-image: url(/banner_bg.png);
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-position: center;

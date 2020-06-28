@@ -50,7 +50,7 @@ class Home extends React.Component {
                   <p>
                   Health Care Hospitals was established in 2004 by Dr.Ruhi, renowned as the architect of modern healthcare in India.Health Care Hospitals is acclaimed for pioneering the private healthcare revolution in the country. Health Care Hospitals has emerged as Asia’s foremost integrated healthcare services provider and has a robust presence across the healthcare ecosystem, including Hospitals, Pharmacies, Primary Care & Diagnostic Clinics and several retail health models.
                   </p>
-                  <Link className="btn_2 " to="#">
+                  <Link className="btn_2 " to="/About">
                     learn more
                   </Link>
                   <div className="banner_item">
@@ -91,11 +91,9 @@ class Home extends React.Component {
                       <img src="/icon/feature_1.svg" alt="" />
                     </span>
 
-                    <h4>Better Future</h4>
+                    <h4>Emergency services</h4>
                     <p>
-                      Darkness multiply rule Which from without life creature
-                      blessed give moveth moveth seas make day which divided our
-                      have.
+                      We provide service 24*7 for emergency patients.Ambulance service is also available.
                     </p>
                   </div>
                 </div>
@@ -104,11 +102,9 @@ class Home extends React.Component {
                     <span className="single_feature_icon">
                       <img src="/icon/feature_2.svg" alt="" />
                     </span>
-                    <h4>Better Future</h4>
+                    <h4>Medical care</h4>
                     <p>
-                      Darkness multiply rule Which from without life creature
-                      blessed give moveth moveth seas make day which divided our
-                      have.
+                      Any kind of medicine required will be available in hospital itself.Laboratories are also implemeneted to provide quick services for patients.
                     </p>
                   </div>
                 </div>
@@ -124,11 +120,9 @@ class Home extends React.Component {
                     <span className="single_feature_icon">
                       <img src="/icon/feature_1.svg" alt="" />
                     </span>
-                    <h4>Better Future</h4>
+                    <h4>Better doctors</h4>
                     <p>
-                      Darkness multiply rule Which from without life creature
-                      blessed give moveth moveth seas make day which divided our
-                      have.
+                    In every department we have fully experienced doctors. Better care best facilities provided for patients.
                     </p>
                   </div>
                 </div>
@@ -137,11 +131,9 @@ class Home extends React.Component {
                     <span className="single_feature_icon">
                       <img src="/icon/feature_2.svg" alt="" />
                     </span>
-                    <h4>Better Future</h4>
+                    <h4>Awareness programs</h4>
                     <p>
-                      Darkness multiply rule Which from without life creature
-                      blessed give moveth moveth seas make day which divided our
-                      have.
+                      Hospital management conducts awareness progarms related to physical health etc to bring awareness in people.
                     </p>
                   </div>
                 </div>
@@ -157,8 +149,7 @@ class Home extends React.Component {
                 <div className="section_tittle text-center">
                   <h2> Experienced Doctors</h2>
                   <p>
-                    Face replenish sea good winged bearing years air divide
-                    wasHave night male also
+                    Experienced doctors of  various departments.
                   </p>
                 </div>
               </div>
@@ -185,7 +176,7 @@ class Home extends React.Component {
                   <div className="single_text">
                     <div className="single_blog_text">
                       <h3>DR Adam Billiard</h3>
-                      <p>Medicine specialist</p>
+                      <p>ENT specialist</p>
                     </div>
                   </div>
                 </div>
@@ -199,7 +190,7 @@ class Home extends React.Component {
                   <div className="single_text">
                     <div className="single_blog_text">
                       <h3>DR Fred Macyard</h3>
-                      <p>CHeart specialist</p>
+                      <p>Skin specialist</p>
                     </div>
                   </div>
                 </div>
@@ -212,7 +203,7 @@ class Home extends React.Component {
                   <div className="single_text">
                     <div className="single_blog_text">
                       <h3>DR Justin Stuard</h3>
-                      <p>Heart specialist</p>
+                      <p>Eye specialist</p>
                     </div>
                   </div>
                 </div>

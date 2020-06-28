@@ -13,7 +13,7 @@ function Footer(){
    
                     <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <ul className='l'>
-                        <Link to='/Home'>
+                        <Link to='/'>
 
                             <img src="doc1.svg" className="figure-img img-fluid" alt="logo" height="150" width="150"></img>
                             
@@ -35,18 +35,16 @@ function Footer(){
                                     <Link to="/">Home</Link>
                                     </li>
 
+                                
                                     <li>
-                                            <Link to="#">Services</Link>
-                                    </li>
-
-                                    <li>
-                                            <Link to="#">Doctors</Link>
+                                            <Link to="/Profile">Doctors</Link>
                                     </li>
                                 
                                     <li>
                                         <Link to="/About">About</Link>
                                     </li>
                                             
+                                    
                                    
                                             
                                     
@@ -60,7 +58,7 @@ function Footer(){
                                     
                                     <div style={{display:'flex', justifyContent: "center"}}>
                                         <li>
-                                                <Link to="htttps://www.facebook.com/doctor"><i className="fa fa-facebook fa-2x"></i></Link>
+                                                <Link to="#"><i className="fa fa-facebook fa-2x"></i></Link>
                                         </li>
                                             
                                         <li>

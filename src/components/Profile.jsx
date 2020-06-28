@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 //import {Link} from 'react-router-dom';
-import "./Profile.css";
+//import "./Profile.css";
 class Profile extends Component{
 
     render(){
@@ -16,7 +16,12 @@ class Profile extends Component{
                   </div>
                 </div>
               </div>
-              <h2>Heart specialists</h2>
+              
+              <h2 style={{textAlign:"left", padding:'50px', fontFamily:"Serif" }}><span className="font-weight-bold">
+                Heart specialists
+                </span>
+              </h2>
+
               <div className="row">
                 <div className="col-sm-6 col-lg-3">
                   <div className="single_blog_item">
@@ -26,7 +31,10 @@ class Profile extends Component{
                     <div className="single_text">
                       <div className="single_blog_text">
                         <h3>DR Adam Billiard</h3>
-                        <p>Heart specialist</p>
+                        <p>Heart specialist
+                        <br/>
+                          Experience:20 years
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -39,7 +47,10 @@ class Profile extends Component{
                     <div className="single_text">
                       <div className="single_blog_text">
                         <h3>DR Adam Billiard</h3>
-                        <p>Medicine specialist</p>
+                        <p>Heart specialist
+                          <br/>
+                          Experience:20 years
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -53,7 +64,10 @@ class Profile extends Component{
                     <div className="single_text">
                       <div className="single_blog_text">
                         <h3>DR Fred Macyard</h3>
-                        <p>CHeart specialist</p>
+                        <p>Heart specialist
+                        <br/>
+                          Experience:20 years
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -66,14 +80,20 @@ class Profile extends Component{
                     <div className="single_text">
                       <div className="single_blog_text">
                         <h3>DR Justin Stuard</h3>
-                        <p>Heart specialist</p>
+                        <p>Heart specialist
+                        <br/>
+                          Experience:20 years
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <h2>ENT specialists</h2>
+              <h2 style={{textAlign:"left", padding:'50px', fontFamily:"Serif" }}><span className="font-weight-bold">
+                ENT specialists
+                </span>
+              </h2>
               <div className="row">
                 <div className="col-sm-6 col-lg-3">
                   <div className="single_blog_item">
@@ -83,7 +103,10 @@ class Profile extends Component{
                     <div className="single_text">
                       <div className="single_blog_text">
                         <h3>DR Adam Billiard</h3>
-                        <p>Heart specialist</p>
+                        <p>ENT specialist
+                        <br/>
+                          Experience:20 years
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -96,7 +119,10 @@ class Profile extends Component{
                     <div className="single_text">
                       <div className="single_blog_text">
                         <h3>DR Adam Billiard</h3>
-                        <p>Medicine specialist</p>
+                        <p>ENT specialist
+                        <br/>
+                          Experience:20 years
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -110,7 +136,10 @@ class Profile extends Component{
                     <div className="single_text">
                       <div className="single_blog_text">
                         <h3>DR Fred Macyard</h3>
-                        <p>CHeart specialist</p>
+                        <p>ENT specialist
+                        <br/>
+                          Experience:20 years
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -123,7 +152,10 @@ class Profile extends Component{
                     <div className="single_text">
                       <div className="single_blog_text">
                         <h3>DR Justin Stuard</h3>
-                        <p>Heart specialist</p>
+                        <p>ENT specialist
+                        <br/>
+                          Experience:20 years
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -131,7 +163,11 @@ class Profile extends Component{
 
               </div>
 
-              <h2 style={{textAlign:"left", padding:'50px', fontFamily:"Serif" }}>General physicians</h2>
+              <h2 style={{textAlign:"left", padding:'50px', fontFamily:"Serif" }}><span className="font-weight-bold">
+                General physicians
+                </span>
+              </h2>
+
               <div className="row">
                 <div className="col-sm-6 col-lg-3">
                   <div className="single_blog_item">
@@ -141,7 +177,10 @@ class Profile extends Component{
                     <div className="single_text">
                       <div className="single_blog_text">
                         <h3>DR Adam Billiard</h3>
-                        <p>Heart specialist</p>
+                        <p>General physician
+                        <br/>
+                          Experience:20 years
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -154,7 +193,10 @@ class Profile extends Component{
                     <div className="single_text">
                       <div className="single_blog_text">
                         <h3>DR Adam Billiard</h3>
-                        <p>Medicine specialist</p>
+                        <p>General physician
+                        <br/>
+                          Experience:20 years
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -168,7 +210,9 @@ class Profile extends Component{
                     <div className="single_text">
                       <div className="single_blog_text">
                         <h3>DR Fred Macyard</h3>
-                        <p>CHeart specialist</p>
+                        <p>General physicians                        <br/>
+                          Experience:20 years
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -181,7 +225,10 @@ class Profile extends Component{
                     <div className="single_text">
                       <div className="single_blog_text">
                         <h3>DR Justin Stuard</h3>
-                        <p>Heart specialist</p>
+                        <p>General physician
+                        <br/>
+                          Experience:20 years
+                        </p>
                       </div>
                     </div>
                   </div>
