@@ -47,7 +47,9 @@ class Services extends Component {
             <div className="row ml-3 mt-3">
               <div className="col-4">Name</div>
               <div className="col-1">:</div>
-              <div className="col-6">{this.state.name}</div>
+              <div className="col-6">
+                {this.state.name ? this.state.name : null}
+              </div>
             </div>
           </form>
         </div>
