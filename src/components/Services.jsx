@@ -16,15 +16,13 @@ class Services extends Component {
     };
     this.display = this.display.bind(this);
   }
-  componentDidMount() {
-    this.display();
-  }
-  display = () => {
+
+  display = (date, doctor, timming) => {
     const cc = this;
     db.collection("patients")
-      .doc("2020-07-01")
-      .collection("Dr Nikhil")
-      .doc("09:00 AM")
+      .doc(date)
+      .collection(doctor)
+      .doc(timming)
       .get()
       .then(function (doc) {
         if (doc.exists) {
