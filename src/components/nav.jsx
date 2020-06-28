@@ -105,14 +105,14 @@ class Navbar extends React.Component {
                   {this.props.status &&
                   this.props.userDetails.uid === "pIQDesekmvhsI62jdeo7jMfDywl1" ? (
                     <li className="nav-item">
-                    <Link to="/Services">
-                      <div className="nav-item nav-link">Adimi Now</div>
+                    <Link to="/Services" className="nav-link">
+                    <i className="fa fa-info-circle"></i>Admin Now
                     </Link>
                     </li>
                   ) : (
                     <li className="nav-item">
-                      <Link to="/appointment">
-                        <div className="nav-item nav-link">Book Now </div>
+                      <Link to="/appointment" className="nav-link">
+                      <i className="fa fa-hand-pointer-o"></i>Book Now 
                       </Link>
                     </li>
                   )}
