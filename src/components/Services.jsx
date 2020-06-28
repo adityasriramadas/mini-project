@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Avatar } from "antd";
+//import { Avatar } from "antd";
 import { connect } from "react-redux";
 import "./Services.css";
 
@@ -16,20 +16,24 @@ class Services extends Component {
     };
     this.display = this.display.bind(this);
   }
-
-  display = (date, doctor, timming) => {
+  componentDidMount() {
+    this.display();
+  }
+  display = () => {
     const cc = this;
     db.collection("patients")
-      .doc(date)
-      .collection(doctor)
-      .doc(timming)
+      .doc("2020-07-01")
+      .collection("Dr Nikhil")
+      .doc("09:00 AM")
       .get()
       .then(function (doc) {
         if (doc.exists) {
           var data = doc.data();
           console.log(doc.data());
           cc.setState({
-            name: data.patientDetails.name,
+           
+            name1: data.patientDetails.name,
+
           });
         }
       });
@@ -37,27 +41,26 @@ class Services extends Component {
 
   render() {
     return (
+      <div>Appointments
       <div className="selected-driver-details pt-3">
-        <h3 className="choose">Your Driver</h3>
-        <div className="selected-driver-details-container">
-          <form className="container">
-            <div className="driver-photo">
-              <Avatar src="https://semantic-ui.com/images/avatar2/large/elyse.png" />
+        
+         <div className="row ml-3 mt-1">
+              <div className="col-4">Doa</div>
+              <div className="col-1">:</div>
+              <div className="col-6">2020-07-01</div>
             </div>
+            <div className="row ml-3 mt-2">
+              <div className="col-4">Doctor</div>
+              <div className="col-1">:</div>
+              <div className="col-6">Dr Nikhil</div>
+            </div>
+            
             <div className="row ml-3 mt-3">
               <div className="col-4">Name</div>
               <div className="col-1">:</div>
-              <div className="col-6">
-                {this.state.name ? this.state.name : null}
-              </div>
+              <div className="col-6">{this.state.name1}</div>
             </div>
-          </form>
-        </div>
-        <div className="d-flex flex-row justify-content-center my-2">
-          <button type="button" className="btn btn-dark book">
-            Cancel
-          </button>
-        </div>
+            </div>
       </div>
     );
   }

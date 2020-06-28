@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./nav.css";
 import { connect } from "react-redux";
-import { Menu, Dropdown, Button } from "antd";
+//import { Menu, Dropdown, Button } from "antd";
 import { setItem } from "../actions/userActions";
 import firebase from "../firebase";
 import { logout, setUserDetails } from "../actions/loginActions";
@@ -105,19 +105,19 @@ class Navbar extends React.Component {
                   {this.props.status &&
                   this.props.userDetails.uid === "pIQDesekmvhsI62jdeo7jMfDywl1" ? (
                     <li className="nav-item">
-                    <Link to="/Services">
-                      <div className="nav-item nav-link">Adimi Now</div>
-                    </Link>
+                      <Link to="/Services"  className="nav-link">
+                      <i className="fa fa-plus-square"></i>Appointments
+                      </Link>
                     </li>
                   ) : (
                     <li className="nav-item">
-                      <Link to="/appointment">
-                        <div className="nav-item nav-link">Book Now </div>
-                      </Link>
-                    </li>
+                        <Link to="/appointment"  className="nav-link">
+                        <i className="fa fa-plus-square"></i>Book Now 
+                        </Link>
+                      </li>
                   )}
               
-                
+                <li className="nav-item">
                 {this.props.status ? (
                   <li className="nav-item" onClick={this.signout}>
                     <Link to="/" className="nav-link">
@@ -132,6 +132,7 @@ class Navbar extends React.Component {
                     </Link>
                   </li>
                 )}
+                </li>
               </ul>
             </div>
           </nav>
