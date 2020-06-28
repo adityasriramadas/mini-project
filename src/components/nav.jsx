@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./nav.css";
 import { connect } from "react-redux";
-import { Menu, Dropdown, Button } from "antd";
+//import { Menu, Dropdown, Button } from "antd";
 import { setItem } from "../actions/userActions";
 import firebase from "../firebase";
 import { logout, setUserDetails } from "../actions/loginActions";
@@ -105,6 +105,7 @@ class Navbar extends React.Component {
                   {this.props.status &&
                   this.props.userDetails.uid === "pIQDesekmvhsI62jdeo7jMfDywl1" ? (
                     <li className="nav-item">
+<<<<<<< HEAD
                     <Link to="/Services" className="nav-link">
                     <i className="fa fa-info-circle"></i>Admin Now
                     </Link>
@@ -115,9 +116,21 @@ class Navbar extends React.Component {
                       <i className="fa fa-hand-pointer-o"></i>Book Now 
                       </Link>
                     </li>
+=======
+                      <Link to="/Services"  className="nav-link">
+                      <i className="fa fa-plus-square"></i>Appointments
+                      </Link>
+                    </li>
+                  ) : (
+                    <li className="nav-item">
+                        <Link to="/appointment"  className="nav-link">
+                        <i className="fa fa-plus-square"></i>Book Now 
+                        </Link>
+                      </li>
+>>>>>>> 8890e2610f949adafea25d916a9d5e5cc06bbe42
                   )}
               
-                
+                <li className="nav-item">
                 {this.props.status ? (
                   <li className="nav-item" onClick={this.signout}>
                     <Link to="/" className="nav-link">
@@ -132,6 +145,7 @@ class Navbar extends React.Component {
                     </Link>
                   </li>
                 )}
+                </li>
               </ul>
             </div>
           </nav>

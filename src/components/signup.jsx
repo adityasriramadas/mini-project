@@ -179,9 +179,12 @@ class Signup extends Component {
       <div className='ls' >
           <div className="signup-form">
                     <form>
-                        <h2>Sign Up</h2>
-                        <p>Please fill in this form to create an account!</p>
-                        <hr/>
+                    <span className="font-weight-bold" style={{ marginBottom: "20px" }}>
+                        Signup
+                        </span>
+                                 
+                                    <p>Please fill in this form to create an account!</p>
+                        
                
                     <div className="form-group">
                       <label>User Name</label>

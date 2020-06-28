@@ -90,7 +90,7 @@ class Login extends Component {
     if (this.props.loginStatus.status) return <Redirect to="/" />;
 
     return (
-      <div  >
+      <div className='ls'>
        
         <Form className="login-form">
           <div>

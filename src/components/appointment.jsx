@@ -10,7 +10,7 @@ import { message } from "antd";
 
 require("firebase/auth");
 require("firebase/database");
-var firebasee = require("firebase/app");
+//var firebasee = require("firebase/app");
 var db = firebase.firestore();
 var date = new Date();
 date.setDate(date.getDate() + 1);
@@ -28,24 +28,24 @@ const options = [
     label: "09:00 AM",
   },
   {
+    value: "09:15 AM",
+    label: "09:15 AM",
+  },
+  {
     value: "09:30 AM",
     label: "09:30 AM",
   },
   {
-    value: "10:00 AM",
-    label: "10:00 AM",
-  },
-  {
-    value: "10:30 AM",
-    label: "10:30 AM",
+    value: "10:45 AM",
+    label: "10:45 AM",
   },
   {
     value: "11:00 AM",
     label: "11:00 AM",
   },
   {
-    value: "11:30 AM",
-    label: "11:30 AM",
+    value: "11:15 AM",
+    label: "11:15 AM",
   },
 ];
 
@@ -251,7 +251,7 @@ class Appointment extends React.Component {
     const cc = this;
     const err = this.validate();
     var time_of_app = cc.state.toa;
-    var size;
+   // var size;
     if (!err) {
       db.collection("patients")
         .doc(cc.state.doa)

@@ -15,9 +15,7 @@ import { setUserDetails, login } from "./actions/loginActions";
 import "font-awesome/css/font-awesome.min.css";
 require("firebase/firestore");
 class App extends React.Component {
-  constructor() {
-    super();
-  }
+  
   componentDidMount() {
     const cc = this;
     const db = firebase.firestore();
