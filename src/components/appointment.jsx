@@ -130,38 +130,41 @@ class Appointment extends React.Component {
       redirect: false,
       count: 0,
     };
-   
-   
+
     this.onClick = this.onClick.bind(this);
     this.onChange = this.onChange.bind(this);
     this.timeChange = this.timeChange.bind(this);
-    this.val=this.val.bind(this);
+    this.val = this.val.bind(this);
     this.OndoctChange = this.OndoctChange.bind(this);
     this.validate = this.validate.bind(this);
     this.typePatient = this.typePatient.bind(this);
   }
-  componentDidMount(){
+  componentDidMount() {
+    const cc = this;
     db.collection("patients")
-        .where("doa","==","07-08-2020")
-              .get()
-              .then(snap => {
-                  snap.forEach(doc => {
-                      if(doc){
-                        console.log("Hi")
-                        //flag=true;
-                       // return flag;
-                       console.log(doc.data())
-                       // count++;
-                      }
-                      else{
-                        console.log("Its working");
-                      }
-                  });
-              
-                }).catch(function () {
-                  console.log("fail");
-                })
-
+      .get()
+      .then((snap) => {
+        //console.log(snap.size);
+        snap.forEach((doc) => {
+          if (doc.exists) {
+            if (doc.data().doa === "2020-07-08") {
+              cc.setState((prevState) => ({
+                count: prevState.count + 1,
+              }));
+            }
+          } else {
+            console.log("Its working");
+          }
+        });
+        return cc.state.count;
+      })
+      .then(function (count) {
+        console.log(count);
+      })
+      .catch(function () {
+        console.log("fail");
+      });
+    //console.log(cc.state.count);
   }
   onChange = (event) => {
     this.setState({
@@ -270,69 +273,64 @@ class Appointment extends React.Component {
       doctor: doct,
     });
   };
-  val =() =>{
-    let flag=false;
+  val = () => {
+    let flag = false;
     const cc = this;
     const err = this.validate();
     //var time_of_app = cc.state.toa;
     if (!err) {
       db.collection("patients")
-          .where("doa","==",cc.state.doa)
-                .get()
-                .then(snap => {
-                    snap.forEach(doc => {
-                        if(doc.exists){
-                          //console.log("Hi")
-                          flag=true;
-                          return flag;
-                         // console.log(doc.data())
-                         // count++;
-                        }
-                    });
-                
-                  }).catch(function () {
-                    console.log("fail");
-                  });
-                  
-        }
-       // console.log(count);
-        return flag;
-  }
+        .where("doa", "==", cc.state.doa)
+        .get()
+        .then((snap) => {
+          snap.forEach((doc) => {
+            if (doc.exists) {
+              //console.log("Hi")
+              flag = true;
+              return flag;
+              // console.log(doc.data())
+              // count++;
+            }
+          });
+        })
+        .catch(function () {
+          console.log("fail");
+        });
+    }
+    // console.log(count);
+
+    return flag;
+  };
 
   onClick = (e) => {
     e.preventDefault();
-    var c=this.val();
+    var c = this.val();
     const cc = this;
-    
-        if(!c){
-          console.log("Hello");
-         // console.log(c);
-            db.collection("patients")
-            .doc()
-            .set({
-                name: cc.state.name,
-                age: cc.state.age,
-                phonenumber: cc.state.number,
-                email: cc.state.email,
-                doctor: cc.state.doctor,
-                doa: cc.state.doa,
-                toa: cc.state.toa,
-            
-            })
-            .then(function () {
-              
-              console.log("Success");
-              cc.setState({
-                redirect: true,
-              });
-            })
-            .catch(function () {
-              console.log("fail");
-            });
-      }
- 
 
-
+    if (!c) {
+      console.log("Hello");
+      // console.log(c);
+      db.collection("patients")
+        .doc()
+        .set({
+          name: cc.state.name,
+          age: cc.state.age,
+          phonenumber: cc.state.number,
+          email: cc.state.email,
+          doctor: cc.state.doctor,
+          doa: cc.state.doa,
+          toa: cc.state.toa,
+        })
+        .then(function () {
+          console.log("Success");
+          cc.setState({
+            redirect: true,
+          });
+        })
+        .catch(function () {
+          console.log("fail");
+        });
+    }
   };
   render() {
     return (
