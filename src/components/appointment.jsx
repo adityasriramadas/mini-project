@@ -6,7 +6,7 @@ import "./appointment.css";
 //import { login, setUserDetails } from "../actions/loginActions";
 import { connect } from "react-redux";
 import { Redirect } from "react-router";
-//import { message } from "antd";
+import { message } from "antd";
 //import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
 
 require("firebase/auth");
@@ -130,11 +130,10 @@ class Appointment extends React.Component {
       redirect: false,
       count: 0,
     };
-
+   // this.val = this.val.bind(this);
     this.onClick = this.onClick.bind(this);
     this.onChange = this.onChange.bind(this);
     this.timeChange = this.timeChange.bind(this);
-    this.val = this.val.bind(this);
     this.OndoctChange = this.OndoctChange.bind(this);
     this.validate = this.validate.bind(this);
     this.typePatient = this.typePatient.bind(this);
@@ -273,7 +272,8 @@ class Appointment extends React.Component {
       doctor: doct,
     });
   };
-  val = () => {
+  onClick = (e) => {
+    e.preventDefault();
     let flag = false;
     const cc = this;
     const err = this.validate();
@@ -285,7 +285,7 @@ class Appointment extends React.Component {
           snap.forEach((doc) => {
             if (doc.exists) {
               //console.log(doc.data());
-              if (doc.data().doa === cc.state.doa) {
+              if (doc.data().doa === cc.state.doa && doc.data().toa === cc.state.toa && doc.data().doctor[1] === cc.state.doctor[1] && doc.data().doctor[0] === cc.state.doctor[0]) {
                 cc.setState((prevState) => ({
                   count: prevState.count + 1,
                 }));
@@ -297,49 +297,52 @@ class Appointment extends React.Component {
           return cc.state.count;
         })
         .then(function (count) {
+            if(count>0){
+              flag=true;
+            }
+            if ( count===0 )  {
+              console.log("Hello");
+              console.log(count);
+              db.collection("patients")
+                .doc()
+                .set({
+                  name: cc.state.name,
+                  age: cc.state.age,
+                  phonenumber: cc.state.number,
+                  email: cc.state.email,
+                  doctor: cc.state.doctor,
+                  doa: cc.state.doa,
+                  toa: cc.state.toa,
+                })
+                .then(function () {
+                  console.log("Success");
+                  cc.setState({
+                    redirect: true,
+                  });
+                })
+                .catch(function () {
+                  console.log("fail");
+                });
+            }
+            else{
+              message.error("This Slot is filled. Choose another slot. And please refres the page to book another slot.");
+              count=0;
+            }
+            console.log(flag);
           console.log(
-            "number of appointments on " + cc.state.doa + " " + count
+            "number of appointments on " + cc.state.doa + " "+ cc.state.toa+" "+cc.state.doctor[1]+" "+ count
           );
         })
         .catch(function () {
           console.log("fail");
         });
     }
-    // console.log(count);
+    console.log(flag);
 
-    return flag;
+    return cc.state.count;
   };
 
-  onClick = (e) => {
-    e.preventDefault();
-    var c = this.val();
-    const cc = this;
 
-    if (!c) {
-      console.log("Hello");
-      // console.log(c);
-      db.collection("patients")
-        .doc()
-        .set({
-          name: cc.state.name,
-          age: cc.state.age,
-          phonenumber: cc.state.number,
-          email: cc.state.email,
-          doctor: cc.state.doctor,
-          doa: cc.state.doa,
-          toa: cc.state.toa,
-        })
-        .then(function () {
-          console.log("Success");
-          cc.setState({
-            redirect: true,
-          });
-        })
-        .catch(function () {
-          console.log("fail");
-        });
-    }
-  };
   render() {
     return (
       <div>
