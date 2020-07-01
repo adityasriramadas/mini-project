@@ -139,33 +139,33 @@ class Appointment extends React.Component {
     this.validate = this.validate.bind(this);
     this.typePatient = this.typePatient.bind(this);
   }
-  componentDidMount() {
-    const cc = this;
-    db.collection("patients")
-      .get()
-      .then((snap) => {
-        //console.log(snap.size);
-        snap.forEach((doc) => {
-          if (doc.exists) {
-            if (doc.data().doa === "2020-07-08") {
-              cc.setState((prevState) => ({
-                count: prevState.count + 1,
-              }));
-            }
-          } else {
-            console.log("Its working");
-          }
-        });
-        return cc.state.count;
-      })
-      .then(function (count) {
-        console.log(count);
-      })
-      .catch(function () {
-        console.log("fail");
-      });
-    //console.log(cc.state.count);
-  }
+  // componentDidMount() {
+  //   const cc = this;
+  //   db.collection("patients")
+  //     .get()
+  //     .then((snap) => {
+  //       //console.log(snap.size);
+  //       snap.forEach((doc) => {
+  //         if (doc.exists) {
+  //           if (doc.data().doa === "2020-07-08") {
+  //             cc.setState((prevState) => ({
+  //               count: prevState.count + 1,
+  //             }));
+  //           }
+  //         } else {
+  //           console.log("Its working");
+  //         }
+  //       });
+  //       return cc.state.count;
+  //     })
+  //     .then(function (count) {
+  //       console.log(count);
+  //     })
+  //     .catch(function () {
+  //       console.log("fail");
+  //     });
+  //   //console.log(cc.state.count);
+  // }
   onChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
@@ -280,18 +280,26 @@ class Appointment extends React.Component {
     //var time_of_app = cc.state.toa;
     if (!err) {
       db.collection("patients")
-        .where("doa", "==", cc.state.doa)
         .get()
         .then((snap) => {
           snap.forEach((doc) => {
             if (doc.exists) {
-              //console.log("Hi")
-              flag = true;
-              return flag;
-              // console.log(doc.data())
-              // count++;
+              //console.log(doc.data());
+              if (doc.data().doa === cc.state.doa) {
+                cc.setState((prevState) => ({
+                  count: prevState.count + 1,
+                }));
+              }
+            } else {
+              console.log("Its working");
             }
           });
+          return cc.state.count;
+        })
+        .then(function (count) {
+          console.log(
+            "number of appointments on " + cc.state.doa + " " + count
+          );
         })
         .catch(function () {
           console.log("fail");
