@@ -130,7 +130,7 @@ class Appointment extends React.Component {
       redirect: false,
       count: 0,
     };
-   // this.val = this.val.bind(this);
+    // this.val = this.val.bind(this);
     this.onClick = this.onClick.bind(this);
     this.onChange = this.onChange.bind(this);
     this.timeChange = this.timeChange.bind(this);
@@ -285,7 +285,12 @@ class Appointment extends React.Component {
           snap.forEach((doc) => {
             if (doc.exists) {
               //console.log(doc.data());
-              if (doc.data().doa === cc.state.doa && doc.data().toa === cc.state.toa && doc.data().doctor[1] === cc.state.doctor[1] && doc.data().doctor[0] === cc.state.doctor[0]) {
+              if (
+                doc.data().doa === cc.state.doa &&
+                doc.data().toa === cc.state.toa &&
+                doc.data().doctor[1] === cc.state.doctor[1] &&
+                doc.data().doctor[0] === cc.state.doctor[0]
+              ) {
                 cc.setState((prevState) => ({
                   count: prevState.count + 1,
                 }));
@@ -297,51 +302,68 @@ class Appointment extends React.Component {
           return cc.state.count;
         })
         .then(function (count) {
-            if(count>0){
-              flag=true;
-            }
-            if ( count===0 )  {
-              console.log("Hello");
-              console.log(count);
-              db.collection("patients")
-                .doc()
-                .set({
-                  name: cc.state.name,
-                  age: cc.state.age,
-                  phonenumber: cc.state.number,
-                  email: cc.state.email,
-                  doctor: cc.state.doctor,
-                  doa: cc.state.doa,
-                  toa: cc.state.toa,
-                })
-                .then(function () {
-                  console.log("Success");
-                  cc.setState({
-                    redirect: true,
-                  });
-                })
-                .catch(function () {
-                  console.log("fail");
+          if (count > 0) {
+            flag = true;
+            return flag;
+          }
+          if (count === 0) {
+            console.log("Hello");
+            console.log(count);
+            db.collection("patients")
+              .doc()
+              .set({
+                name: cc.state.name,
+                age: cc.state.age,
+                phonenumber: cc.state.number,
+                email: cc.state.email,
+                doctor: cc.state.doctor,
+                doa: cc.state.doa,
+                toa: cc.state.toa,
+              })
+              .then(function () {
+                console.log("Success");
+                cc.setState({
+                  redirect: true,
                 });
-            }
-            else{
-              message.error("This Slot is filled. Choose another slot. And please refres the page to book another slot.");
-              count=0;
-            }
-            console.log(flag);
+                flag = false;
+                return flag;
+              })
+              .catch(function () {
+                console.log("fail");
+              });
+          } else {
+            flag = true;
+          }
+          console.log(flag);
           console.log(
-            "number of appointments on " + cc.state.doa + " "+ cc.state.toa+" "+cc.state.doctor[1]+" "+ count
+            "number of appointments on " +
+              cc.state.doa +
+              " " +
+              cc.state.toa +
+              " " +
+              cc.state.doctor[1] +
+              " " +
+              count
           );
+          return flag;
+        })
+        .then(function (flag) {
+          if (flag) {
+            message.error(
+              "This Slot is filled. Choose another slot. And please refres the page to book another slot."
+            );
+            cc.setState({
+              count: 0,
+            });
+          }
         })
         .catch(function () {
           console.log("fail");
         });
     }
-    console.log(flag);
 
     return cc.state.count;
   };
-
 
   render() {
     return (
