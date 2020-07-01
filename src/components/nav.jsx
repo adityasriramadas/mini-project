@@ -117,7 +117,7 @@ class Navbar extends React.Component {
                       </li>
                   )}
               
-                <li className="nav-item">
+               
                 {this.props.status ? (
                   <li className="nav-item" onClick={this.signout}>
                     <Link to="/" className="nav-link">
@@ -132,7 +132,7 @@ class Navbar extends React.Component {
                     </Link>
                   </li>
                 )}
-                </li>
+               
               </ul>
             </div>
           </nav>

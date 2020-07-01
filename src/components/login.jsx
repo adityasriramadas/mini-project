@@ -37,7 +37,7 @@ class Login extends Component {
   };
 
   login = () => {
-    this.setState({ loading: true });
+  
     let cc = this;
     const db = firebase.firestore();
     firebase
@@ -64,7 +64,7 @@ class Login extends Component {
         });
       })
       .catch(function (error) {
-        cc.setState({ loading: false });
+        
         var errorCode = error.code;
         console.log(errorCode);
         if (errorCode === "auth/user-not-found") {
